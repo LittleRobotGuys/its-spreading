@@ -13,6 +13,17 @@ public class HUDController : MonoBehaviour
     [SerializeField]
     private int _targetBloodValue = 10;
 
+    [SerializeField]
+    private GameObject[] ManaObjs;
+
+    private int ManaTotal = 0;
+    private int CurrentMana = 0;
+
+    [SerializeField]
+    private Sprite Mana_Img;
+    [SerializeField]
+    private Sprite UsedMana_Img;
+
     private void Start()
     {
         //TODO: Subscribe to the "Take damage" event?
@@ -23,6 +34,31 @@ public class HUDController : MonoBehaviour
     {
         LERPFillBar();
         LERPBloodValue();
+    }
+
+    public void UseMana(int amountUsed)
+    {
+        for(int i = 0; i < amountUsed; i++)
+        {
+            ManaObjs[CurrentMana-1-i].GetComponent<Image>().sprite = UsedMana_Img;
+        }
+        CurrentMana -= amountUsed;
+    }
+
+    public void NewTurn()
+    {
+        if (ManaTotal < 6) ManaTotal++;
+        EnableManaNodes();
+        CurrentMana = ManaTotal;
+    }
+
+    private void EnableManaNodes()
+    {
+        for (int i = 0; i < ManaTotal; i++)
+        {
+            ManaObjs[i].active = true;
+            ManaObjs[i].GetComponent<Image>().sprite = Mana_Img;
+        }
     }
 
     public void AddBlood(int value)
