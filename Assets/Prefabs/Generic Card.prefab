@@ -457,6 +457,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff753f80b127a14db79602e883b030f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardFrontPanel: {fileID: 2962387834227981451}
+  CardDescriptionPanel: {fileID: 2962387835082796687}
+  CardTitle: {fileID: 594195997277851154}
+  DescriptionTopInfo: {fileID: 4303000613754022603}
+  DescriptionBottomInfo: {fileID: 2415807870257551364}
 --- !u!1 &2962387834227981453
 GameObject:
   m_ObjectHideFlags: 0
