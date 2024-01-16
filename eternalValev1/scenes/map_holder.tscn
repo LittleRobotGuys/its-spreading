@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qffsse2g28jo"]
+
+[ext_resource type="PackedScene" uid="uid://blf74fhdm815t" path="res://scenes/mainMap.tscn" id="1_y5leu"]
+[ext_resource type="PackedScene" uid="uid://j1q5jsn6wv2" path="res://scenes/battle.tscn" id="2_x4rl2"]
+
+[node name="MapHolder" type="Node2D"]
+
+[node name="mainMap" parent="." instance=ExtResource("1_y5leu")]
+
+[node name="battle" parent="." instance=ExtResource("2_x4rl2")]
