@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://24ubeacpu6wg"]
+[gd_scene load_steps=3 format=3 uid="uid://24ubeacpu6wg"]
 
 [ext_resource type="Script" path="res://Scripts/card_base.cs" id="1_ox2t7"]
+[ext_resource type="Texture2D" uid="uid://cu2qttocw0dxo" path="res://Assets/Images/BloodDroplet.png" id="2_a4nkx"]
 
 [node name="CardBase" type="MarginContainer"]
 offset_right = 128.0
@@ -9,4 +10,13 @@ pivot_offset = Vector2(64, 98)
 mouse_filter = 0
 script = ExtResource("1_ox2t7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CardImage" type="Sprite2D" parent="."]
+
+[node name="BorderImage" type="Sprite2D" parent="."]
+texture = ExtResource("2_a4nkx")
+
+[node name="BloodImage" type="Sprite2D" parent="."]
+
+[node name="AttackImage" type="Sprite2D" parent="."]
+
+[node name="CostImage" type="Sprite2D" parent="."]
