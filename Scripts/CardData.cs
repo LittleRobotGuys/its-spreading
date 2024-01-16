@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class CardData : GodotObject
 {
@@ -21,11 +22,9 @@ public partial class CardData : GodotObject
 		Castle
 		Mausoleum
 	*/
-	enum CardName = {JuvenileVampire, Bat, Villager, Vassal, Farm, SharpTeeth, 
-	SilverSword, VampiricRitual, Wolf, Nosferatu, Dracular, Dhampir, FailedVampire, Castle, Mausoleum}
 	
-	public const var DATA = {
-		JuvenileVampire: ["Minion", 20, 5, "This newly minted blood sucker is a mainstay in your spreading army"],
-		
-	}
+	public const List<card_base> DATA = {
+        card_base JuvenileVampire = new card_base ("Creature", 2, 20, 5, "This newly minted blood sucker is a mainstay in your spreading army"),
+
+    }
 }
