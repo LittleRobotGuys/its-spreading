@@ -22,9 +22,12 @@ public partial class CardData : GodotObject
 		Castle
 		Mausoleum
 	*/
-	
-	public const List<card_base> DATA = {
-        card_base JuvenileVampire = new card_base ("Creature", 2, 20, 5, "This newly minted blood sucker is a mainstay in your spreading army"),
 
-    }
+	public enum CardType { Creature, Action, Enhancement, Environment }
+
+
+    public const List<card_base> DATA = new List<card_base>(){
+		new card_base ("Juvenile Vampire", Creature, 2, 20, 5, "This newly minted blood sucker is a mainstay in your spreading army"),
+
+	};
 }

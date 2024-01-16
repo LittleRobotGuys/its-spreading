@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static CardData;
 
 public partial class card_base : MarginContainer
 {
@@ -7,13 +8,15 @@ public partial class card_base : MarginContainer
     string CardInfo;
 	Image CardImage = null;
     private string name;
+    private CardType type;
     private int cost;
     private int blood;
     private int attack;
 
-    public card_base(string name, int v2, int v3, int v4, string cardInfo)
+    public card_base(string name, CardType type, int v2, int v3, int v4, string cardInfo)
     {
         this.name = name;
+        this.type = type;
         this.cost = v2;
         this.blood = v3;
         this.attack = v4;
