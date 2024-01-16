@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://24ubeacpu6wg"]
+
+[ext_resource type="Script" path="res://Scripts/card_base.cs" id="1_ox2t7"]
+
+[node name="CardBase" type="MarginContainer"]
+offset_right = 128.0
+offset_bottom = 196.0
+pivot_offset = Vector2(64, 98)
+mouse_filter = 0
+script = ExtResource("1_ox2t7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
