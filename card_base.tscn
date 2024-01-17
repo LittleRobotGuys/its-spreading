@@ -1,22 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://24ubeacpu6wg"]
+[gd_scene load_steps=7 format=3 uid="uid://24ubeacpu6wg"]
 
 [ext_resource type="Script" path="res://Scripts/card_base.cs" id="1_ox2t7"]
 [ext_resource type="Texture2D" uid="uid://cu2qttocw0dxo" path="res://Assets/Images/BloodDroplet.png" id="2_a4nkx"]
+[ext_resource type="Texture2D" uid="uid://uwlb2okrlxg0" path="res://Assets/Images/Border_PH.png" id="2_nk06y"]
+[ext_resource type="Texture2D" uid="uid://ct4ryr7yj0guu" path="res://Assets/Images/CardBackground.png" id="2_pg2ir"]
+[ext_resource type="Texture2D" uid="uid://ct8dd0fwxtuws" path="res://Assets/Images/Attack.png" id="4_0gwdn"]
+[ext_resource type="Texture2D" uid="uid://bt2r7dadvfsyw" path="res://Assets/Images/Cost.png" id="5_6pqf1"]
 
 [node name="CardBase" type="MarginContainer"]
-offset_right = 128.0
-offset_bottom = 196.0
-pivot_offset = Vector2(64, 98)
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_direction = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -376.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
 mouse_filter = 0
 script = ExtResource("1_ox2t7")
 
 [node name="CardImage" type="Sprite2D" parent="."]
+texture = ExtResource("2_pg2ir")
+centered = false
 
 [node name="BorderImage" type="Sprite2D" parent="."]
-texture = ExtResource("2_a4nkx")
+texture = ExtResource("2_nk06y")
+offset = Vector2(100, 100)
 
 [node name="BloodImage" type="Sprite2D" parent="."]
+position = Vector2(100, 172)
+texture = ExtResource("2_a4nkx")
 
 [node name="AttackImage" type="Sprite2D" parent="."]
+position = Vector2(171, 171)
+texture = ExtResource("4_0gwdn")
 
 [node name="CostImage" type="Sprite2D" parent="."]
+position = Vector2(29, 171)
+texture = ExtResource("5_6pqf1")
