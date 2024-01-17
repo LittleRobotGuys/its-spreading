@@ -7,7 +7,7 @@ extends Control
 @onready var quit_button = $HBoxContainer/VBoxContainer/quit_button as Button
 @onready var menu_margin_container = $"." as MarginContainer
 @onready var options_menu_container = $"../options_menu_container" as MarginContainer
-@onready var options_back_button = $"../options_menu_container/back_button" as Button
+@onready var options_back_button = $"../options_menu_container/VBoxContainer/back_button" as Button
 @onready var new_game_scene = preload("res://Scenes/new_game.tscn") as PackedScene
 
 

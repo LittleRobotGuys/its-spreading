@@ -1,6 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cpji7l5haqnr3"]
+[gd_scene load_steps=25 format=3 uid="uid://cpji7l5haqnr3"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ro37x"]
+[ext_resource type="AudioStream" uid="uid://n6h38sb34vs3" path="res://Assets/Audio/Music/MenuTheme.wav" id="2_31f4q"]
+[ext_resource type="Script" path="res://FX Slider.gd" id="3_b0wqi"]
+[ext_resource type="Script" path="res://Scenes/BGM Slider.gd" id="3_rdn8n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dsre"]
 bg_color = Color(0, 0, 0, 1)
@@ -43,6 +46,8 @@ font_names = PackedStringArray("Fantasy")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgf0q"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_848fj"]
+
 [node name="main_menu_control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -61,6 +66,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1dsre")
 
 [node name="menu_margin_container" type="MarginContainer" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,25 +177,81 @@ text = "Quit to Desktop"
 flat = true
 
 [node name="options_menu_container" type="MarginContainer" parent="Background"]
-visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -55.0
-offset_right = 91.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="back_button" type="Button" parent="Background/options_menu_container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/options_menu_container"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HSeparator" type="HSeparator" parent="Background/options_menu_container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+theme_override_styles/separator = SubResource("StyleBoxEmpty_848fj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/options_menu_container/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/options_menu_container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BGM Vol" type="Label" parent="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Music Volume: "
+
+[node name="HSlider" type="HSlider" parent="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+focus_mode = 0
+min_value = -25.0
+max_value = 0.0
+step = 0.25
+script = ExtResource("3_rdn8n")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background/options_menu_container/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="FX Vol" type="Label" parent="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "FX Volume: "
+
+[node name="HSlider" type="HSlider" parent="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+focus_mode = 0
+min_value = -25.0
+max_value = 0.0
+step = 0.25
+script = ExtResource("3_b0wqi")
+
+[node name="back_button" type="Button" parent="Background/options_menu_container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "Back to main menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_31f4q")
+autoplay = true
+bus = &"BGM"
+
+[connection signal="value_changed" from="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer/HSlider" to="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Background/options_menu_container/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" method="_on_value_changed"]
