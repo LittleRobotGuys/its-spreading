@@ -1,0 +1,185 @@
+[gd_scene load_steps=21 format=3 uid="uid://cpji7l5haqnr3"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ro37x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dsre"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_bkwg8"]
+font_names = PackedStringArray("Sylfaen")
+
+[sub_resource type="SystemFont" id="SystemFont_qq1hs"]
+font_names = PackedStringArray("Fantasy")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_46rlq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p52n2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0yac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yafjr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ymcd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4y4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scjmm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrvtp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7h3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sn7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjfmp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ujiqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12fs1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ncb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33wfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgf0q"]
+
+[node name="main_menu_control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dsre")
+
+[node name="menu_margin_container" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+script = ExtResource("1_ro37x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/menu_margin_container"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="HSeparator" type="HSeparator" parent="Background/menu_margin_container/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Game Title" type="Label" parent="Background/menu_margin_container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.507244, 1.26945e-06, 1.92523e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.129412, 0.129412, 0.129412, 1)
+theme_override_fonts/font = SubResource("SystemFont_bkwg8")
+theme_override_font_sizes/font_size = 140
+text = "Eternal Veil"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/menu_margin_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/menu_margin_container/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 197
+
+[node name="new_game_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = SubResource("SystemFont_qq1hs")
+theme_override_font_sizes/font_size = 62
+theme_override_styles/hover = SubResource("StyleBoxEmpty_46rlq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p52n2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l0yac")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yafjr")
+action_mode = 0
+text = "New Game"
+flat = true
+
+[node name="load_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = SubResource("SystemFont_qq1hs")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0ymcd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c4y4d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_scjmm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xrvtp")
+action_mode = 0
+text = "Load Game"
+flat = true
+
+[node name="options_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = SubResource("SystemFont_qq1hs")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d7h3j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0sn7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jjfmp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ujiqe")
+action_mode = 0
+text = "Options"
+flat = true
+
+[node name="quit_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
+theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = SubResource("SystemFont_qq1hs")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_12fs1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5ncb5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_33wfh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dgf0q")
+action_mode = 0
+text = "Quit to Desktop"
+flat = true
+
+[node name="options_menu_container" type="MarginContainer" parent="Background"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="back_button" type="Button" parent="Background/options_menu_container"]
+layout_mode = 2
+text = "Back to main menu"
