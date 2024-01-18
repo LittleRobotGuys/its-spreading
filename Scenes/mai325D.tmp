@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cpji7l5haqnr3"]
+[gd_scene load_steps=51 format=3 uid="uid://cpji7l5haqnr3"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ro37x"]
 [ext_resource type="Texture2D" uid="uid://c0rvi45oevwia" path="res://Assets/Images/Animated Title-Sheet.png" id="2_7bkat"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://yuv1d4ml4dqt" path="res://Assets/Images/FX Sprite.png" id="10_ehc80"]
 [ext_resource type="Texture2D" uid="uid://b48xgug6yohqf" path="res://Assets/Images/Fullscreen Sprite.png" id="11_bbbx6"]
 [ext_resource type="Texture2D" uid="uid://bdt5tsds5ox3h" path="res://Assets/Images/Windowed Sprite.png" id="12_oeg51"]
-[ext_resource type="Texture2D" uid="uid://tl43s6h8dx06" path="res://Assets/Images/Back Sprite.png" id="13_pvgtp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dsre"]
 bg_color = Color(0, 0, 0, 1)
@@ -201,6 +200,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1dsre")
 
 [node name="menu_margin_container" type="MarginContainer" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -220,8 +220,8 @@ theme_override_constants/separation = 60
 [node name="HSeparator" type="HSeparator" parent="Background/menu_margin_container/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 65
 
 [node name="Game Title" type="Label" parent="Background/menu_margin_container/VBoxContainer"]
 visible = false
@@ -236,10 +236,9 @@ text = "Eternal Veil"
 
 [node name="PanelContainer" type="PanelContainer" parent="Background/menu_margin_container/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/menu_margin_container/VBoxContainer/PanelContainer"]
+position = Vector2(554, 68)
 scale = Vector2(2.09843, 2.03937)
 sprite_frames = SubResource("SpriteFrames_fm6ag")
 animation = &"menu_title_animation"
@@ -252,8 +251,6 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/menu_margin_container/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 24
 alignment = 1
 
@@ -261,12 +258,10 @@ alignment = 1
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_constants/separation = 175
+theme_override_constants/separation = 197
 
 [node name="new_game_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
@@ -284,7 +279,6 @@ icon_alignment = 1
 
 [node name="load_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
@@ -302,7 +296,6 @@ icon_alignment = 1
 
 [node name="options_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
@@ -321,7 +314,6 @@ icon_alignment = 1
 
 [node name="quit_button" type="Button" parent="Background/menu_margin_container/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.47451, 0.47451, 0.47451, 1)
 theme_override_colors/font_hover_color = Color(0.619608, 0, 0, 1)
@@ -338,7 +330,6 @@ flat = true
 icon_alignment = 1
 
 [node name="options_menu_container" type="MarginContainer" parent="Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -352,27 +343,16 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/options_menu_container"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 25
 
-[node name="HSeparator" type="HSeparator" parent="Background/options_menu_container/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 100
-theme_override_styles/separator = SubResource("StyleBoxEmpty_848fj")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Background/options_menu_container/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/options_menu_container/VBoxContainer/HBoxContainer2"]
+[node name="Sprite2D" type="Sprite2D" parent="Background/options_menu_container/VBoxContainer"]
+position = Vector2(562, 72)
 scale = Vector2(1.89583, 1.89583)
 texture = ExtResource("5_ow5ys")
 
-[node name="HSeparator2" type="HSeparator" parent="Background/options_menu_container/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Background/options_menu_container/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 225
 theme_override_styles/separator = SubResource("StyleBoxEmpty_848fj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/options_menu_container/VBoxContainer"]
@@ -433,13 +413,11 @@ alignment = 1
 
 [node name="fullscreen_button" type="Button" parent="Background/options_menu_container/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-focus_mode = 0
 icon = ExtResource("11_bbbx6")
 flat = true
 
 [node name="windowed_button" type="Button" parent="Background/options_menu_container/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-focus_mode = 0
 icon = ExtResource("12_oeg51")
 flat = true
 
@@ -447,10 +425,7 @@ flat = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-focus_mode = 0
-icon = ExtResource("13_pvgtp")
-flat = true
-icon_alignment = 1
+text = "Back to main menu"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_31f4q")
@@ -459,5 +434,3 @@ bus = &"BGM"
 
 [connection signal="value_changed" from="Background/options_menu_container/VBoxContainer/VBoxContainer/HSlider" to="Background/options_menu_container/VBoxContainer/VBoxContainer/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Background/options_menu_container/VBoxContainer/VBoxContainer2/HSlider" to="Background/options_menu_container/VBoxContainer/VBoxContainer2/HSlider" method="_on_value_changed"]
-[connection signal="pressed" from="Background/options_menu_container/VBoxContainer/HBoxContainer/fullscreen_button" to="Background/menu_margin_container" method="_on_fullscreen_button_pressed"]
-[connection signal="pressed" from="Background/options_menu_container/VBoxContainer/HBoxContainer/windowed_button" to="Background/menu_margin_container" method="_on_windowed_button_pressed"]

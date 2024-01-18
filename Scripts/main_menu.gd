@@ -9,6 +9,8 @@ extends Control
 @onready var options_menu_container = $"../options_menu_container" as MarginContainer
 @onready var options_back_button = $"../options_menu_container/VBoxContainer/back_button" as Button
 @onready var new_game_scene = preload("res://Scenes/new_game.tscn") as PackedScene
+@onready var fullscreen_button = $"../options_menu_container/VBoxContainer/HBoxContainer/fullscreen_button" as Button
+@onready var windowed_button = $"../options_menu_container/VBoxContainer/HBoxContainer/windowed_button" as Button
 
 
 func _ready():
@@ -39,3 +41,9 @@ func handle_connecting_signals():
 	options_button.button_down.connect(on_options_button_press)
 	quit_button.button_down.connect(on_quit_button_press)
 	options_back_button.button_down.connect(on_options_back_button_press)
+
+func _on_windowed_button_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_fullscreen_button_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
