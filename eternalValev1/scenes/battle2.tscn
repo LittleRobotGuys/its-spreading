@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://8o2dryfpxl5x"]
+
+[ext_resource type="Script" path="res://scripts/drawBattle.gd" id="1_x5pod"]
+
+[node name="Battle3" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_x5pod")
+
+[node name="TextEdit" type="TextEdit" parent="Node2D"]
+offset_left = 176.0
+offset_top = 48.0
+offset_right = 416.0
+offset_bottom = 216.0
+text = "Battle 2(3)"

@@ -21,4 +21,4 @@ project/assembly_name="eternalValev1"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.996078, 0.823529, 0.631373, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

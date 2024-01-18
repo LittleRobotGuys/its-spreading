@@ -13,6 +13,7 @@ offset_bottom = 184.0
 action_mode = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Button"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 40.0
 offset_right = 184.0

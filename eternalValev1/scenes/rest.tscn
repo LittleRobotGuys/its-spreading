@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ucduxjm1fk5e"]
+
+[ext_resource type="Script" path="res://scripts/drawRestRectangle.gd" id="1_vsyvt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ugexr"]
+resource_local_to_scene = true
+
+[node name="Rest" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_ugexr")
+script = ExtResource("1_vsyvt")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 104.0
+offset_top = 88.0
+offset_right = 448.0
+offset_bottom = 360.0
+text = "REST SITE"
