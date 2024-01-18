@@ -5,11 +5,11 @@
 [ext_resource type="AudioStream" uid="uid://n6h38sb34vs3" path="res://Assets/Audio/Music/MenuTheme.wav" id="2_31f4q"]
 [ext_resource type="Texture2D" uid="uid://bmdoliqpadg5w" path="res://Assets/Images/New Game Sprite.png" id="3_2xxj8"]
 [ext_resource type="Script" path="res://FX Slider.gd" id="3_b0wqi"]
-[ext_resource type="Script" path="res://Scenes/BGM Slider.gd" id="3_rdn8n"]
 [ext_resource type="Texture2D" uid="uid://cru5wgv3lrfwi" path="res://Assets/Images/Load Game Sprite.png" id="4_540jc"]
 [ext_resource type="Texture2D" uid="uid://dfvgp6m24jeau" path="res://Assets/Images/Options Sprite.png" id="5_ow5ys"]
 [ext_resource type="Texture2D" uid="uid://dcmnsxi4poaih" path="res://Assets/Images/Quit Sprite.png" id="6_1qpjx"]
 [ext_resource type="Texture2D" uid="uid://ceajg13c6ksex" path="res://Assets/Images/Music Sprite.png" id="7_vgjgq"]
+[ext_resource type="Script" path="res://Scripts/BGM Slider.gd" id="8_oa1be"]
 [ext_resource type="Texture2D" uid="uid://yuv1d4ml4dqt" path="res://Assets/Images/FX Sprite.png" id="10_ehc80"]
 [ext_resource type="Texture2D" uid="uid://b48xgug6yohqf" path="res://Assets/Images/Fullscreen Sprite.png" id="11_bbbx6"]
 [ext_resource type="Texture2D" uid="uid://bdt5tsds5ox3h" path="res://Assets/Images/Windowed Sprite.png" id="12_oeg51"]
@@ -397,7 +397,7 @@ focus_mode = 0
 min_value = -25.0
 max_value = 0.0
 step = 0.25
-script = ExtResource("3_rdn8n")
+script = ExtResource("8_oa1be")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Background/options_menu_container/VBoxContainer"]
 layout_mode = 2

@@ -18,15 +18,13 @@ func _ready():
 
 func on_new_game_button_press():
 	get_tree().change_scene_to_packed(new_game_scene)
-	#print('new game button is connected')
 
 #func on_load_button_press():
-	#print('load button is connected')
+
 
 func on_options_button_press():
 	menu_margin_container.visible = false
 	options_menu_container.visible = true
-	#print('options button is connected')
 
 func on_options_back_button_press():
 	menu_margin_container.visible = true
