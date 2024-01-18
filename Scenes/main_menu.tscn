@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpji7l5haqnr3"]
+[gd_scene load_steps=43 format=3 uid="uid://cpji7l5haqnr3"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ro37x"]
+[ext_resource type="Texture2D" uid="uid://c0rvi45oevwia" path="res://Assets/Images/Animated Title-Sheet.png" id="2_7bkat"]
 [ext_resource type="AudioStream" uid="uid://n6h38sb34vs3" path="res://Assets/Audio/Music/MenuTheme.wav" id="2_31f4q"]
 [ext_resource type="Script" path="res://FX Slider.gd" id="3_b0wqi"]
 [ext_resource type="Script" path="res://Scenes/BGM Slider.gd" id="3_rdn8n"]
@@ -10,6 +11,131 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_bkwg8"]
 font_names = PackedStringArray("Sylfaen")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsk2m"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(0, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32huu"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(254, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaf5d"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(508, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vogs4"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(762, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xay0x"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(1016, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usvhe"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(1270, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrrgx"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(1524, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwwqj"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(1778, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8fqn"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(2032, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlkes"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(2286, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cn1i"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(2540, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f5l5"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(2794, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uebml"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(3048, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kjqi"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(3302, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e47u"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(3556, 0, 254, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k578y"]
+atlas = ExtResource("2_7bkat")
+region = Rect2(3810, 0, 254, 127)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fm6ag"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsk2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32huu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaf5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vogs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xay0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usvhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrrgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwwqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8fqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlkes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cn1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f5l5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uebml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kjqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e47u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k578y")
+}],
+"loop": true,
+"name": &"menu_title_animation",
+"speed": 9.0
+}]
 
 [sub_resource type="SystemFont" id="SystemFont_qq1hs"]
 font_names = PackedStringArray("Fantasy")
@@ -66,7 +192,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1dsre")
 
 [node name="menu_margin_container" type="MarginContainer" parent="Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,8 +211,11 @@ theme_override_constants/separation = 60
 [node name="HSeparator" type="HSeparator" parent="Background/menu_margin_container/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Game Title" type="Label" parent="Background/menu_margin_container/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -96,6 +224,17 @@ theme_override_colors/font_shadow_color = Color(0.129412, 0.129412, 0.129412, 1)
 theme_override_fonts/font = SubResource("SystemFont_bkwg8")
 theme_override_font_sizes/font_size = 140
 text = "Eternal Veil"
+
+[node name="PanelContainer" type="PanelContainer" parent="Background/menu_margin_container/VBoxContainer"]
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background/menu_margin_container/VBoxContainer/PanelContainer"]
+position = Vector2(554, 68)
+scale = Vector2(2.09843, 2.03937)
+sprite_frames = SubResource("SpriteFrames_fm6ag")
+animation = &"menu_title_animation"
+autoplay = "menu_title_animation"
+frame_progress = 0.0859907
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/menu_margin_container"]
 layout_mode = 2
@@ -177,6 +316,7 @@ text = "Quit to Desktop"
 flat = true
 
 [node name="options_menu_container" type="MarginContainer" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
