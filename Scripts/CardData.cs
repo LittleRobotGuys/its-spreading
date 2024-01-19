@@ -36,7 +36,7 @@ public partial class CardData : GodotObject
 		 * Vampire / Vassal	Creature	3m/30/15d	
 		 * Dracula / Abraham Van Helsing	Creature	5m/50/25d	Attacks all units in column in front of him / Van helsing only costs 4 mana splits total damage rounded up to all vampires on the board
 		 */
-		new card_base ("Juvenile Vampire", CardType.Creature, 2, 20, 5, "This newly minted blood sucker is a mainstay in your spreading army"),
+		new card_base ("Juvenile Vampire", CardType.Creature, 2, 20, 5, "This newly minted initial_blood_value sucker is a mainstay in your spreading army"),
 		new card_base ("Militia", CardType.Creature, 2, 20, 5, "I hate vampires so hard!"),
 		new card_base ("Bat", CardType.Creature, 1, 10, 2, "Squeak!"),
 		new card_base ("Hound", CardType.Creature, 1, 10, 2, "Arf!"),
@@ -47,7 +47,7 @@ public partial class CardData : GodotObject
 
 		/*
 		 * Vampiric Ritual	Action	3m	Consume 2 lesser vampires to create 1 greater vampire
-		 * Blood letting	Action	2m	Heal up to 10 missing blood from any unit on the battlefield
+		 * Blood letting	Action	2m	Heal up to 10 missing initial_blood_value from any unit on the battlefield
 		 * Backstab	Action	1m	Deal 5 damage directly to any unit on the battlefield (double damage if the tile behind them in unoccupied)
 		 * Wooden Stake	Action	1m	Deal 5 to any vampire
 		 * Tactical Maneuver	Action	2m	Move 3 units you control to different spaces on the battlefield
@@ -59,7 +59,7 @@ public partial class CardData : GodotObject
 		 */
 		
 		new card_base ("Vampiric Ritual", CardType.Action, 3, 0, 0,   "Consume 2 lesser vampires to create 1 greater vampire"),
-		new card_base ("Blood letting", CardType.Action, 2, 0, 0,     "Heal up to 10 missing blood from any unit on the battlefield"),
+		new card_base ("Blood letting", CardType.Action, 2, 0, 0,     "Heal up to 10 missing initial_blood_value from any unit on the battlefield"),
 		new card_base ("Backstab", CardType.Action, 1, 0, 0,          "Deal 5 damage directly to any unit on the battlefield (double damage if the tile behind them in unoccupied)"),
 		new card_base ("Wooden Stake", CardType.Action, 1, 0, 0,      "Deal 5 to any vampire"),
 		new card_base ("Tactical Maneuver", CardType.Action, 2, 0, 0, "Move 3 units you control to different spaces on the battlefield"),
