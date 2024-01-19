@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://gvsil6w8tr37"]
+
+[ext_resource type="Script" path="res://scripts/drawBattle.gd" id="1_gx8xo"]
+[ext_resource type="Script" path="res://scripts/drawRectangle.gd" id="2_kbcns"]
+
+[node name="Battle21" type="Node2D"]
+script = ExtResource("1_gx8xo")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_kbcns")
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = 208.0
+offset_top = 128.0
+offset_right = 344.0
+offset_bottom = 240.0
+text = "Return from Battle 2.1"
+
+[connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]

@@ -1,15 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://8o2dryfpxl5x"]
+[gd_scene load_steps=3 format=3 uid="uid://8o2dryfpxl5x"]
 
+[ext_resource type="Script" path="res://scripts/bat1_main.gd" id="1_nwnuy"]
 [ext_resource type="Script" path="res://scripts/drawBattle.gd" id="1_x5pod"]
 
 [node name="Battle3" type="Node2D"]
+script = ExtResource("1_nwnuy")
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_x5pod")
 
-[node name="TextEdit" type="TextEdit" parent="Node2D"]
-offset_left = 176.0
-offset_top = 48.0
-offset_right = 416.0
-offset_bottom = 216.0
-text = "Battle 2(3)"
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 128.0
+action_mode = 0
+button_mask = 7
+text = "Click to Return"
+
+[connection signal="pressed" from="Node2D/Button" to="Node2D" method="_on_button_pressed"]

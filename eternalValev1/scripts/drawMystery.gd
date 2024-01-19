@@ -1,4 +1,3 @@
-
 extends Node2D
 
 
@@ -9,9 +8,5 @@ func _ready():
 	pass
 
 func _draw():
-	draw_rect(Rect2(0,0,1500,650), Color.LIGHT_SKY_BLUE, true)
+	draw_rect(Rect2(0,0,1500,650), Color.PURPLE, true)
 	
-
-
-func _on_button_pressed():
-	pass # Replace with function body.

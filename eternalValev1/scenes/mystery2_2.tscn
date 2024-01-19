@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://do0pvcd0a8pht"]
+
+[ext_resource type="Script" path="res://scripts/battleScene.gd" id="1_6q4fy"]
+[ext_resource type="Script" path="res://scripts/drawMystery.gd" id="2_70l88"]
+
+[node name="Mystery22" type="Node2D"]
+script = ExtResource("1_6q4fy")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_70l88")
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Cave Cleared"
+
+[connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]

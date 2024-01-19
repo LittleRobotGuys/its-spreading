@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba7yniq5aq3h1"]
+
+[ext_resource type="Script" path="res://scripts/battleScene.gd" id="1_bpnhf"]
+[ext_resource type="Texture2D" uid="uid://8667xjpfgy17" path="res://sprites/boss1_floor.png" id="2_ddnnm"]
+
+[node name="EliteBattle32" type="Node2D"]
+script = ExtResource("1_bpnhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(318, 324)
+scale = Vector2(5.03125, 5.0625)
+texture = ExtResource("2_ddnnm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(956, 324)
+scale = Vector2(4.9375, 5.0625)
+texture = ExtResource("2_ddnnm")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 448.0
+offset_right = 880.0
+offset_bottom = 544.0
+text = "Level 1 Victory
+Click to Return"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
