@@ -15,6 +15,7 @@ extends Control
 
 func _ready():
 	handle_connecting_signals()
+	randomize()
 
 func on_new_game_button_press():
 	get_tree().change_scene_to_packed(new_game_scene)

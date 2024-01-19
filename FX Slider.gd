@@ -3,7 +3,7 @@ extends HSlider
 
 var fx_bus = AudioServer.get_bus_index('FX')
 
-func _on_value_changed(value: float) -> void:
+func _on_value_changed() -> void:
 	AudioServer.set_bus_volume_db(fx_bus,value)
 	print(value)
 
