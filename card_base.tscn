@@ -18,10 +18,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -376.0
-offset_bottom = -124.0
+offset_left = -512.0
+offset_top = -300.0
+offset_right = -312.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
@@ -43,7 +43,7 @@ region_enabled = true
 
 [node name="BorderImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_nk06y")
-offset = Vector2(100, 100)
+centered = false
 
 [node name="BloodImage" type="Sprite2D" parent="."]
 position = Vector2(99, 163)
