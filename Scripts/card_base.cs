@@ -2,14 +2,15 @@ using Godot;
 using System;
 using static CardData;
 
-public partial class card_base : MarginContainer
+public partial class card_base : MarginContainer, ICloneable
 {
-	string DefaultCardInfo = "UNINITIALIZED CARD INFO";
-	string CardInfo;
-	string CardFlavorText;
-	Image CardImage = null;
+	private string DefaultCardInfo = "UNINITIALIZED CARD INFO";
+	private string CardInfo;
+	private string CardFlavorText;
+    private CardAlignment cardAlignment;
+    Image CardImage = null;
 	private string name;
-	private CardType type;
+	private CardType cardType;
 	private int cost;
 	private int initial_blood_value;
 	private int blood_modifier;
@@ -19,15 +20,18 @@ public partial class card_base : MarginContainer
 
 	private int borderWidth = 5;
 
-	public card_base(string name, CardType type, int cost, int blood, int attack, string cardInfo, string flavorText = "")
+    public int uid { get; set; }
+
+    public card_base(string name, CardType type, int cost, int blood, int attack, string cardInfo, CardAlignment alignment, string flavorText = "" )
 	{
 		this.name = name;
-		this.type = type;
+		this.cardType = type;
 		this.cost = cost;
 		this.initial_blood_value = blood;
 		this.attack = attack;
 		this.CardInfo = cardInfo == null ? cardInfo : DefaultCardInfo;
 		this.CardFlavorText = flavorText;
+		this.cardAlignment = alignment;
 	}
 
 	// Called when the node enters the scene tree for the first time.
@@ -35,7 +39,7 @@ public partial class card_base : MarginContainer
 	{
 		GD.Print("Created a card named " + this.name + "!");
 
-		switch (type)
+		switch (cardType)
 		{
 			case CardType.Action:
 				break;
@@ -75,15 +79,39 @@ public partial class card_base : MarginContainer
 
     public void KillCard(card_base targetCard)
     {
-        // TODO: Play death animation here
+		// TODO: Play death animation here
 
 		// TODO: Remove card visibility
 
 		// TODO: Remove card from any decks it is a part of
 
 		// TODO: Delete card once it is not referenced anywhere else
+		RemoveCardFromMemory();
 
     }
 
+	public void RemoveCardFromMemory()
+	{
+		GameState.RemoveUidFromState(this.uid);
+	}
+
     public int GetCurrentBloodValue()
+	{
+		return blood_modifier + initial_blood_value;
+	}
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
+
+	public CardAlignment GetAlignment()
+	{
+		return this.cardAlignment;
+	}
+
+	public CardType GetCardType()
+	{
+		return this.cardType;
+    }
 }
