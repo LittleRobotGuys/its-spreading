@@ -18,4 +18,4 @@ action_mode = 0
 button_mask = 7
 text = "Click to Return"
 
-[connection signal="pressed" from="Node2D/Button" to="Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]

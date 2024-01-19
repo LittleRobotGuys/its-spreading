@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ggmy2uddt5c"]
+
+[ext_resource type="Script" path="res://scripts/bat1_main.gd" id="1_oiy3u"]
+[ext_resource type="Script" path="res://scripts/drawBattle.gd" id="2_m1ver"]
+
+[node name="Battle32" type="Node2D"]
+script = ExtResource("1_oiy3u")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_m1ver")
+
+[node name="Return" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
