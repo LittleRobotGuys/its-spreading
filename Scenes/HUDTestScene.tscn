@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vchhtibvf4ha"]
+[gd_scene load_steps=12 format=3 uid="uid://crjt5w5p5r15i"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
@@ -8,12 +8,28 @@
 [ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_i53n6"]
 [ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ito0s"]
 
+[sub_resource type="Animation" id="Animation_ohpts"]
+resource_name = "BannerDownTransition"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(140, -150), Vector2(140, 10), Vector2(140, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ag8wi"]
 resource_name = "BannerUpTransition"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("TopBanner:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -39,22 +55,6 @@ tracks/0/keys = {
 "values": [Vector2(140, -0.185)]
 }
 
-[sub_resource type="Animation" id="Animation_ohpts"]
-resource_name = "BannerDownTransition"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopBanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(140, -150), Vector2(140, 10), Vector2(140, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo6x"]
 _data = {
 "BannerDownTransition": SubResource("Animation_ohpts"),
@@ -67,17 +67,17 @@ _data = {
 [node name="Test Buttons" type="Node" parent="."]
 
 [node name="Trigger Banner" type="Button" parent="Test Buttons"]
-offset_left = 392.0
-offset_top = 358.0
-offset_right = 492.0
-offset_bottom = 389.0
+offset_left = 5.0
+offset_top = 361.0
+offset_right = 128.0
+offset_bottom = 392.0
 text = "Trigger Banner"
 
 [node name="NewTurn" type="Button" parent="Test Buttons"]
-offset_left = 195.0
-offset_top = 355.0
-offset_right = 295.0
-offset_bottom = 386.0
+offset_left = 6.0
+offset_top = 326.0
+offset_right = 106.0
+offset_bottom = 357.0
 text = "New Turn"
 
 [node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("bloodBar", "bloodTxt", "manaObjs")]
@@ -92,16 +92,17 @@ UsedManaImg = ExtResource("3_1nk3u")
 [node name="HUDLeft" type="Node" parent="HUDCanvas"]
 
 [node name="LeftBG" type="TextureRect" parent="HUDCanvas/HUDLeft"]
-offset_left = -11.0
-offset_top = 436.0
-offset_right = 355.0
-offset_bottom = 724.0
+offset_left = -29.0
+offset_top = 403.0
+offset_right = 337.0
+offset_bottom = 691.0
 texture = ExtResource("1_72p8w")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="BloodBar" type="TextureProgressBar" parent="HUDCanvas/HUDLeft/LeftBG"]
 z_index = -1
+layout_mode = 0
 offset_left = 37.0
 offset_top = 100.0
 offset_right = 909.0
@@ -180,15 +181,16 @@ animationPlayer = NodePath("BannerAnimation")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -436.0
+offset_left = 140.0
 offset_top = -0.185
-offset_right = 1956.0
+offset_right = 2532.0
 offset_bottom = 387.815
 grow_horizontal = 2
 scale = Vector2(0.365, 0.365)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_ito0s")
+expand_mode = 3
 
 [node name="BannerTxt" type="Label" parent="HUDCanvas/HUDTop/TopBanner"]
 layout_mode = 1

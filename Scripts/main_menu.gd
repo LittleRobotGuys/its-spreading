@@ -1,7 +1,7 @@
 class_name main_menu
 extends Control
 
-@onready var new_game_button = $HBoxContainer/VBoxContainer/new_game_button as Button
+@onready var new_game_button =  $HBoxContainer/VBoxContainer/new_game_button as Button
 @onready var load_button = $HBoxContainer/VBoxContainer/load_button as Button
 @onready var options_button = $HBoxContainer/VBoxContainer/options_button as Button
 @onready var quit_button = $HBoxContainer/VBoxContainer/quit_button as Button

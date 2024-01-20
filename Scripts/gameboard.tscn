@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ypkt431q7dhm"]
+
+[sub_resource type="TileSet" id="TileSet_yrrui"]
+tile_size = Vector2i(100, 100)
+
+[node name="GameBoard" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_yrrui")
+rendering_quadrant_size = 128
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 4, 0, -131071, 3, 0, -131070, 2, 0, -65535, 3, 0, 1, 3, 0, -196608, 4, 0, 65537, 3, 0, -65536, 4, 0, 0, 4, 0, 65536, 4, 0, 131072, 4, 0, 131073, 3, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 65540, 2, 0, 4, 2, 0, -65532, 2, 0, -131068, 2, 0, -196605, 2, 0, -196604, 2, 0, -131069, 2, 0, 65539, 2, 0, 65538, 2, 0, -196606, 2, 0, -196607, 3, 0, 196606, 4, 0, 131070, 4, 0, 65534, 4, 0, -2, 4, 0, -65538, 4, 0, -131074, 4, 0, 196607, 4, 0, 131071, 4, 0, 65535, 4, 0, -1, 4, 0, -65537, 4, 0, -131073, 4, 0, -65534, 2, 0, 2, 2, 0, -65533, 2, 0, 3, 2, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
