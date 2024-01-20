@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
-[ext_resource type="PackedScene" uid="uid://24ubeacpu6wg" path="res://Scripts/card_base.tscn" id="1_sl58w"]
+[ext_resource type="PackedScene" path="res://card_base.tscn" id="1_sl58w"]
 [ext_resource type="Texture2D" uid="uid://db3dwpfbk7mh1" path="res://Assets/Images/HUD/Blood_Bar.png" id="2_pbo3r"]
 [ext_resource type="Texture2D" uid="uid://bt0ed3v4isaul" path="res://Assets/Images/HUD/ManaBar2_grey.png" id="3_1nk3u"]
 [ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
