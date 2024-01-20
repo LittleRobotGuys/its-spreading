@@ -1,6 +1,7 @@
 extends Node
 class_name HUDController
 
+@export var HUDTop: HUDTopController
 @export var targetBloodValue: int = 20
 @export var bloodBar: TextureProgressBar
 @export var bloodTxt: Label

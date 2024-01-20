@@ -1,4 +1,5 @@
 extends Node
+class_name HUDTopController
 
 @export var bannerObj: TextureRect
 @export var bannerTxt: Label
