@@ -1,0 +1,216 @@
+[gd_scene load_steps=12 format=3 uid="uid://vchhtibvf4ha"]
+
+[ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
+[ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
+[ext_resource type="Texture2D" uid="uid://db3dwpfbk7mh1" path="res://Assets/Images/HUD/Blood_Bar.png" id="2_pbo3r"]
+[ext_resource type="Texture2D" uid="uid://bt0ed3v4isaul" path="res://Assets/Images/HUD/ManaBar2_grey.png" id="3_1nk3u"]
+[ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
+[ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_i53n6"]
+[ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ito0s"]
+
+[sub_resource type="Animation" id="Animation_ag8wi"]
+resource_name = "BannerUpTransition"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(140, 0), Vector2(140, 5), Vector2(140, -150)]
+}
+
+[sub_resource type="Animation" id="Animation_aorde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, -0.185)]
+}
+
+[sub_resource type="Animation" id="Animation_ohpts"]
+resource_name = "BannerDownTransition"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(140, -150), Vector2(140, 10), Vector2(140, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo6x"]
+_data = {
+"BannerDownTransition": SubResource("Animation_ohpts"),
+"BannerUpTransition": SubResource("Animation_ag8wi"),
+"RESET": SubResource("Animation_aorde")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Test Buttons" type="Node" parent="."]
+
+[node name="Trigger Banner" type="Button" parent="Test Buttons"]
+offset_left = 392.0
+offset_top = 358.0
+offset_right = 492.0
+offset_bottom = 389.0
+text = "Trigger Banner"
+
+[node name="NewTurn" type="Button" parent="Test Buttons"]
+offset_left = 195.0
+offset_top = 355.0
+offset_right = 295.0
+offset_bottom = 386.0
+text = "New Turn"
+
+[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("bloodBar", "bloodTxt", "manaObjs")]
+script = ExtResource("1_2uixq")
+targetBloodValue = 55
+bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
+bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
+manaObjs = NodePath("HUDLeft/LeftBG/ManaBar")
+manaImg = ExtResource("3_3ebk2")
+UsedManaImg = ExtResource("3_1nk3u")
+
+[node name="HUDLeft" type="Node" parent="HUDCanvas"]
+
+[node name="LeftBG" type="TextureRect" parent="HUDCanvas/HUDLeft"]
+offset_left = -11.0
+offset_top = 436.0
+offset_right = 355.0
+offset_bottom = 724.0
+texture = ExtResource("1_72p8w")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="BloodBar" type="TextureProgressBar" parent="HUDCanvas/HUDLeft/LeftBG"]
+z_index = -1
+offset_left = 37.0
+offset_top = 100.0
+offset_right = 909.0
+offset_bottom = 972.0
+scale = Vector2(0.101, 0.101)
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("2_pbo3r")
+
+[node name="BloodTxt" type="Label" parent="HUDCanvas/HUDLeft/LeftBG/BloodBar"]
+layout_mode = 0
+offset_left = 79.2079
+offset_top = 247.525
+offset_right = 119.208
+offset_bottom = 270.525
+scale = Vector2(17.61, 17.61)
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaBar" type="HBoxContainer" parent="HUDCanvas/HUDLeft/LeftBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.601
+anchor_right = 0.35
+anchor_bottom = 0.601
+offset_left = -0.100006
+offset_top = -15.088
+offset_right = 114.9
+offset_bottom = 14.912
+
+[node name="ManaSegment" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3ebk2")
+expand_mode = 3
+
+[node name="ManaSegment2" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3ebk2")
+expand_mode = 3
+
+[node name="ManaSegment3" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3ebk2")
+expand_mode = 3
+
+[node name="ManaSegment4" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3ebk2")
+expand_mode = 3
+
+[node name="ManaSegment5" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3ebk2")
+expand_mode = 3
+
+[node name="ManaSegment6" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3ebk2")
+expand_mode = 3
+
+[node name="HUDTop" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("bannerObj", "bannerTxt", "animationPlayer")]
+script = ExtResource("6_i53n6")
+bannerObj = NodePath("TopBanner")
+bannerTxt = NodePath("TopBanner/BannerTxt")
+animationPlayer = NodePath("BannerAnimation")
+
+[node name="TopBanner" type="TextureRect" parent="HUDCanvas/HUDTop"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -436.0
+offset_top = -0.185
+offset_right = 1956.0
+offset_bottom = 387.815
+grow_horizontal = 2
+scale = Vector2(0.365, 0.365)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_ito0s")
+
+[node name="BannerTxt" type="Label" parent="HUDCanvas/HUDTop/TopBanner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.068
+offset_top = -37.8356
+offset_right = -24.1835
+offset_bottom = -14.8356
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.89, 2.89)
+text = "Your Turn"
+
+[node name="BannerAnimation" type="AnimationPlayer" parent="HUDCanvas/HUDTop"]
+libraries = {
+"": SubResource("AnimationLibrary_wgo6x")
+}
+
+[connection signal="pressed" from="Test Buttons/Trigger Banner" to="HUDCanvas/HUDTop" method="TriggerBanner"]
+[connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]
+[connection signal="animation_finished" from="HUDCanvas/HUDTop/BannerAnimation" to="HUDCanvas/HUDTop" method="_on_animation_player_animation_finished"]
