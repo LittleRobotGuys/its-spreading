@@ -1,4 +1,5 @@
 extends Node
+class_name HUDController
 
 @export var targetBloodValue: int = 20
 @export var bloodBar: TextureProgressBar
@@ -8,6 +9,7 @@ var manaTotal: int
 var manaCurrent: int
 @export var manaImg: Texture2D
 @export var UsedManaImg: Texture2D
+@export var SkipButton: Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
