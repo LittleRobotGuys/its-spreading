@@ -7,8 +7,8 @@ public partial class card_base : MarginContainer, ICloneable
 	private string DefaultCardInfo = "UNINITIALIZED CARD INFO";
 	private string CardInfo;
 	private string CardFlavorText;
-    private CardAlignment cardAlignment;
-    Image CardImage = null;
+	private CardAlignment cardAlignment;
+	Image CardImage = null;
 	private string name;
 	private CardType cardType;
 	private int cost;
@@ -20,9 +20,9 @@ public partial class card_base : MarginContainer, ICloneable
 
 	private int borderWidth = 5;
 
-    public int uid { get; set; }
+	public int uid { get; set; }
 
-    public card_base(string name, CardType type, int cost, int blood, int attack, string cardInfo, CardAlignment alignment, string flavorText = "" )
+	public card_base(string name, CardType type, int cost, int blood, int attack, string cardInfo, CardAlignment alignment, string flavorText = "" )
 	{
 		this.name = name;
 		this.cardType = type;
@@ -54,15 +54,15 @@ public partial class card_base : MarginContainer, ICloneable
 
 		}
 
-        BloodLabel = GetNode<Label>("BloodLabel");
-        AttackLabel = GetNode<Label>("AttackLabel");
-        CostLabel = GetNode<Label>("CostLabel");
+		BloodLabel = GetNode<Label>("BloodLabel");
+		AttackLabel = GetNode<Label>("AttackLabel");
+		CostLabel = GetNode<Label>("CostLabel");
 
-        GD.Print("BloodLabel value: " + BloodLabel.Text);
-        GD.Print("AttackLabel value: " + AttackLabel.Text);
-        GD.Print("CostLabel value: " + CostLabel.Text);
+		GD.Print("BloodLabel value: " + BloodLabel.Text);
+		GD.Print("AttackLabel value: " + AttackLabel.Text);
+		GD.Print("CostLabel value: " + CostLabel.Text);
 
-        AddThemeConstantOverride("margin_top", borderWidth);
+		AddThemeConstantOverride("margin_top", borderWidth);
 		AddThemeConstantOverride("margin_left", borderWidth);
 		AddThemeConstantOverride("margin_bottom", borderWidth);
 		AddThemeConstantOverride("margin_right", borderWidth);
@@ -77,8 +77,8 @@ public partial class card_base : MarginContainer, ICloneable
 		}
 	}
 
-    public void KillCard(card_base targetCard)
-    {
+	public void KillCard(card_base targetCard)
+	{
 		// TODO: Play death animation here
 
 		// TODO: Remove card visibility
@@ -88,22 +88,22 @@ public partial class card_base : MarginContainer, ICloneable
 		// TODO: Delete card once it is not referenced anywhere else
 		RemoveCardFromMemory();
 
-    }
+	}
 
 	public void RemoveCardFromMemory()
 	{
 		GameState.RemoveUidFromState(this.uid);
 	}
 
-    public int GetCurrentBloodValue()
+	public int GetCurrentBloodValue()
 	{
 		return blood_modifier + initial_blood_value;
 	}
 
-    public object Clone()
-    {
-        return this.MemberwiseClone();
-    }
+	public object Clone()
+	{
+		return this.MemberwiseClone();
+	}
 
 	public CardAlignment GetAlignment()
 	{
@@ -113,5 +113,5 @@ public partial class card_base : MarginContainer, ICloneable
 	public CardType GetCardType()
 	{
 		return this.cardType;
-    }
+	}
 }
