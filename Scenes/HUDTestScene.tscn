@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://crjt5w5p5r15i"]
+[gd_scene load_steps=13 format=3 uid="uid://vchhtibvf4ha"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
 [ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_i53n6"]
 [ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ito0s"]
+[ext_resource type="Script" path="res://Scripts/PhaseController/PhaseManager.gd" id="8_lleyy"]
 
 [sub_resource type="Animation" id="Animation_ohpts"]
 resource_name = "BannerDownTransition"
@@ -80,7 +81,7 @@ offset_right = 106.0
 offset_bottom = 357.0
 text = "New Turn"
 
-[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("bloodBar", "bloodTxt", "manaObjs")]
+[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("bloodBar", "bloodTxt", "manaObjs", "SkipButton")]
 script = ExtResource("1_2uixq")
 targetBloodValue = 55
 bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
@@ -88,6 +89,7 @@ bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
 manaObjs = NodePath("HUDLeft/LeftBG/ManaBar")
 manaImg = ExtResource("3_3ebk2")
 UsedManaImg = ExtResource("3_1nk3u")
+SkipButton = NodePath("HUDLeft/SkipPhase")
 
 [node name="HUDLeft" type="Node" parent="HUDCanvas"]
 
@@ -171,6 +173,17 @@ layout_mode = 2
 texture = ExtResource("3_3ebk2")
 expand_mode = 3
 
+[node name="SkipPhase" type="Button" parent="HUDCanvas/HUDLeft"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = -82.0
+offset_right = 199.0
+offset_bottom = -51.0
+grow_vertical = 0
+text = "Skip Phase"
+
 [node name="HUDTop" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("bannerObj", "bannerTxt", "animationPlayer")]
 script = ExtResource("6_i53n6")
 bannerObj = NodePath("TopBanner")
@@ -181,9 +194,9 @@ animationPlayer = NodePath("BannerAnimation")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 140.0
+offset_left = -372.0
 offset_top = -0.185
-offset_right = 2532.0
+offset_right = 2020.0
 offset_bottom = 387.815
 grow_horizontal = 2
 scale = Vector2(0.365, 0.365)
@@ -213,6 +226,10 @@ libraries = {
 "": SubResource("AnimationLibrary_wgo6x")
 }
 
+[node name="GamePhaseManager" type="Node" parent="."]
+script = ExtResource("8_lleyy")
+
 [connection signal="pressed" from="Test Buttons/Trigger Banner" to="HUDCanvas/HUDTop" method="TriggerBanner"]
 [connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]
+[connection signal="pressed" from="HUDCanvas/HUDLeft/SkipPhase" to="GamePhaseManager" method="TriggerNextPhase"]
 [connection signal="animation_finished" from="HUDCanvas/HUDTop/BannerAnimation" to="HUDCanvas/HUDTop" method="_on_animation_player_animation_finished"]
