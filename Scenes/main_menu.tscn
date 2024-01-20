@@ -219,6 +219,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1dsre")
 
 [node name="options_menu" type="VBoxContainer" parent="Background"]
+visible = false
 layout_mode = 2
 offset_left = 12.0
 offset_top = 87.0
@@ -324,7 +325,6 @@ flat = true
 icon_alignment = 1
 
 [node name="menu_margin_container" type="MarginContainer" parent="Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
