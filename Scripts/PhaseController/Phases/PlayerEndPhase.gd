@@ -6,6 +6,7 @@ func BeginPhase():
 	HUD.SkipButton.disabled = true
 	#foreach card under player control, trigger cards
 	#discard hand
+	HUD.HUDBot.DiscardHand()
 	Manager.TriggerNextPhase()
 	
 func NextPhase():

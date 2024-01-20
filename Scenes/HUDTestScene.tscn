@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://vchhtibvf4ha"]
+[gd_scene load_steps=15 format=3 uid="uid://vchhtibvf4ha"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
+[ext_resource type="PackedScene" uid="uid://24ubeacpu6wg" path="res://Scripts/card_base.tscn" id="1_sl58w"]
 [ext_resource type="Texture2D" uid="uid://db3dwpfbk7mh1" path="res://Assets/Images/HUD/Blood_Bar.png" id="2_pbo3r"]
 [ext_resource type="Texture2D" uid="uid://bt0ed3v4isaul" path="res://Assets/Images/HUD/ManaBar2_grey.png" id="3_1nk3u"]
 [ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
 [ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_i53n6"]
 [ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ito0s"]
+[ext_resource type="Script" path="res://Scripts/HUD/HUDBottomController.gd" id="8_2w2c5"]
 [ext_resource type="Script" path="res://Scripts/PhaseController/PhaseManager.gd" id="8_lleyy"]
 
 [sub_resource type="Animation" id="Animation_ohpts"]
@@ -65,6 +67,8 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CardBase" parent="." instance=ExtResource("1_sl58w")]
+
 [node name="Test Buttons" type="Node" parent="."]
 
 [node name="NewTurn" type="Button" parent="Test Buttons"]
@@ -74,9 +78,10 @@ offset_right = 106.0
 offset_bottom = 357.0
 text = "New Turn"
 
-[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("HUDTop", "bloodBar", "bloodTxt", "manaObjs", "SkipButton")]
+[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("HUDTop", "HUDBot", "bloodBar", "bloodTxt", "manaObjs", "SkipButton")]
 script = ExtResource("1_2uixq")
 HUDTop = NodePath("HUDTop")
+HUDBot = NodePath("HUDBottom")
 targetBloodValue = 55
 bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
 bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
@@ -220,9 +225,34 @@ libraries = {
 "": SubResource("AnimationLibrary_wgo6x")
 }
 
+[node name="HUDBottom" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("CardContainer", "Card_Prefab")]
+script = ExtResource("8_2w2c5")
+CardContainer = NodePath("HandContainer/CardContainer")
+Card_Prefab = NodePath("../../CardBase")
+
+[node name="HandContainer" type="CenterContainer" parent="HUDCanvas/HUDBottom"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_top = -63.0
+offset_right = -1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardContainer" type="HBoxContainer" parent="HUDCanvas/HUDBottom/HandContainer"]
+layout_direction = 2
+layout_mode = 2
+
 [node name="GamePhaseManager" type="Node" parent="."]
 script = ExtResource("8_lleyy")
 
+[connection signal="mouse_entered" from="CardBase" to="HUDCanvas/HUDBottom" method="FocusHand"]
+[connection signal="mouse_exited" from="CardBase" to="HUDCanvas/HUDBottom" method="UnfocusHand"]
 [connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]
 [connection signal="pressed" from="HUDCanvas/HUDLeft/SkipPhase" to="GamePhaseManager" method="TriggerNextPhase"]
 [connection signal="animation_finished" from="HUDCanvas/HUDTop/BannerAnimation" to="HUDCanvas/HUDTop" method="_on_animation_player_animation_finished"]
+[connection signal="mouse_entered" from="HUDCanvas/HUDBottom/HandContainer" to="HUDCanvas/HUDBottom" method="FocusHand"]
+[connection signal="mouse_exited" from="HUDCanvas/HUDBottom/HandContainer" to="HUDCanvas/HUDBottom" method="UnfocusHand"]
