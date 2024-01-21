@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blr4o1jws0sw8"]
+[gd_scene load_steps=5 format=3 uid="uid://blr4o1jws0sw8"]
 
 [ext_resource type="Texture2D" uid="uid://cpbj7mmmf866n" path="res://Assets/Images/red_tile.png" id="1_gcd0u"]
 [ext_resource type="Texture2D" uid="uid://cbc0w4yd3fevg" path="res://Assets/Images/grey_tile.png" id="2_vicd7"]
 [ext_resource type="Texture2D" uid="uid://pqx8c5t3bwe6" path="res://Assets/Images/blue_tile.png" id="3_g7qfp"]
-[ext_resource type="Texture2D" uid="uid://iks4saabp85q" path="res://Assets/Images/mariko.png" id="4_rc56b"]
 [ext_resource type="PackedScene" uid="uid://crjt5w5p5r15i" path="res://Scenes/HUDTestScene.tscn" id="5_avqmt"]
 
 [node name="NewGame" type="Control"]
@@ -282,15 +281,6 @@ size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
 texture = ExtResource("3_g7qfp")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -57.0
-offset_right = 1030.0
-offset_bottom = 721.0
-texture = ExtResource("4_rc56b")
-expand_mode = 1
 
 [node name="Hud" parent="." instance=ExtResource("5_avqmt")]
 z_index = 2
