@@ -38,14 +38,15 @@ func EnableManaNodes():
 		(tmp as TextureRect).visible = true
 		(tmp as TextureRect).texture = manaImg
 
-func AddBlood():
-	targetBloodValue += 5
+func AddBlood(value: int):
+	targetBloodValue += value
 
 func LerpBloodFillBar(delta):
-	if (int (bloodBar.value) == targetBloodValue):
+	var dist = Distance(int (bloodBar.value), targetBloodValue)
+	if (dist <= 1):
 		bloodBar.value = targetBloodValue
 	else:
-		bloodBar.value = lerp(bloodBar.value, targetBloodValue as float, delta / (Distance(bloodBar.value,targetBloodValue)/100))
+		bloodBar.value = lerp(bloodBar.value, targetBloodValue as float, delta/ (Distance(bloodBar.value,targetBloodValue)/40))
 	bloodTxt.text = String.num(bloodBar.value)
 
 func Distance(a: float, b: float):

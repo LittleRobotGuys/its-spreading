@@ -7,7 +7,7 @@ public partial class CardData : GodotObject
 	public enum CardType { Creature, Action, Enhancement, Environment }
 	public enum CardAlignment { Vampire, Human, Neutral }
 
-    /************ 
+	/************ 
 	 * This class is a stand-in.
 	 * 
 	 * Ideally, this class will have a DATA object like below, but it will be filled via other methods than hard-coded entries.
@@ -19,7 +19,7 @@ public partial class CardData : GodotObject
 	 * Hard-coding all of these cards is not ideal obviously and is not scalable, but for now this is the quickest path to victory.
 	 * 
 	 */
-    public static List<card_base> DATA = new List<card_base>()
+	public static List<card_base> DATA = new List<card_base>()
 	{
 		/*
 		 * Failed Vampire / Sick Villager	Creature	2m/10/5d	Attacks randomly each round / Blood counts as negative at end of combat
@@ -64,14 +64,14 @@ public partial class CardData : GodotObject
 		/* 018 */ new card_base ("To Arms!", CardType.Action, 3, 0, 0,          "Consume 3 villagers to produce 1 Militia", CardAlignment.Human),
 
 
-        /*
+		/*
 		 * Sharp Teeth / Torch	Enhancement	1m	Permenant +1 to damage
 		 * Silver Sword / Crucifix	Enhancement	3m	Permenant +5 to damage
 		 */
 		 
 
 		/* 019 */ new card_base ("Sharp Teeth", CardType.Enhancement, 1, 0, 0,     "+1 Damage", CardAlignment.Vampire),
-        /* 020 */ new card_base ("Torch", CardType.Enhancement, 1, 0, 0,           "+1 Damage", CardAlignment.Human),
+		/* 020 */ new card_base ("Torch", CardType.Enhancement, 1, 0, 0,           "+1 Damage", CardAlignment.Human),
 
 
 		/* 
@@ -82,51 +82,51 @@ public partial class CardData : GodotObject
 		 * Bloodwood Tree / Holy Water Spring	Environment	3m	Occupy 1 space on the enemy board
 		 */
 
-        /* 021 */ new card_base ("Castle", CardType.Environment, 2, 0, 0,            "Bolsters defence of adjacent vampire cards, reduce damage taken by 2", CardAlignment.Vampire),
-        /* 022 */ new card_base ("Farm", CardType.Environment, 2, 0, 0,              "Bolsters defence of adjacent vampire cards, reduce damage taken by 2", CardAlignment.Human),
-        /* 023 */ new card_base ("Mausoleum", CardType.Environment, 5, 0, 0,         "If surrounded by units return one unit from graveyard to battlefield", CardAlignment.Vampire),
-        /* 024 */ new card_base ("Hospital", CardType.Enhancement, 3, 0, 0,          "Heals surrounding units 5 hp per turn", CardAlignment.Human),
-        /* 025 */ new card_base ("Bloodwood Tree", CardType.Enhancement, 1, 0, 0,    "Environment	3m	Occupy 1 space on the enemy board", CardAlignment.Vampire),
-        /* 026 */ new card_base ("Holy Water Spring", CardType.Enhancement, 1, 0, 0, "Environment	3m	Occupy 1 space on the enemy board", CardAlignment.Human),
-    };
+		/* 021 */ new card_base ("Castle", CardType.Environment, 2, 0, 0,            "Bolsters defence of adjacent vampire cards, reduce damage taken by 2", CardAlignment.Vampire),
+		/* 022 */ new card_base ("Farm", CardType.Environment, 2, 0, 0,              "Bolsters defence of adjacent vampire cards, reduce damage taken by 2", CardAlignment.Human),
+		/* 023 */ new card_base ("Mausoleum", CardType.Environment, 5, 0, 0,         "If surrounded by units return one unit from graveyard to battlefield", CardAlignment.Vampire),
+		/* 024 */ new card_base ("Hospital", CardType.Enhancement, 3, 0, 0,          "Heals surrounding units 5 hp per turn", CardAlignment.Human),
+		/* 025 */ new card_base ("Bloodwood Tree", CardType.Enhancement, 1, 0, 0,    "Environment	3m	Occupy 1 space on the enemy board", CardAlignment.Vampire),
+		/* 026 */ new card_base ("Holy Water Spring", CardType.Enhancement, 1, 0, 0, "Environment	3m	Occupy 1 space on the enemy board", CardAlignment.Human),
+	};
 
-    public card_base GetRandomCardOfAlignement(CardAlignment alignement)
-    {
-        card_base card = CloneCard((int)GD.Randi() % DATA.Count);
-        if (card.GetAlignment() == alignement)
-        {
-            return card;
-        }
-        else
+	public card_base GetRandomCardOfAlignement(CardAlignment alignement)
+	{
+		card_base card = CloneCard((int)GD.Randi() % DATA.Count);
+		if (card.GetAlignment() == alignement)
+		{
+			return card;
+		}
+		else
 		{
 			card.RemoveCardFromMemory();
-            return GetRandomCardOfAlignement(alignement);
+			return GetRandomCardOfAlignement(alignement);
 		}
-    }
+	}
 
-    public card_base GetRandomCardOfAlignementAndType(CardAlignment alignement, CardType cardType)
-    {
-        card_base card = CloneCard((int)GD.Randi() % DATA.Count);
-        if (card.GetAlignment() == alignement && card.GetCardType() == cardType)
-        {
-            return card;
-        }
-        else
-        {
+	public card_base GetRandomCardOfAlignementAndType(CardAlignment alignement, CardType cardType)
+	{
+		card_base card = CloneCard((int)GD.Randi() % DATA.Count);
+		if (card.GetAlignment() == alignement && card.GetCardType() == cardType)
+		{
+			return card;
+		}
+		else
+		{
 			card.RemoveCardFromMemory();
-            return GetRandomCardOfAlignementAndType(alignement, cardType);
-        }
-    }
+			return GetRandomCardOfAlignementAndType(alignement, cardType);
+		}
+	}
 
 
-    public static card_base CloneCard(int dataIndex)
-    {
-        if (0 < dataIndex && dataIndex < DATA.Count)
+	public static card_base CloneCard(int dataIndex)
+	{
+		if (0 < dataIndex && dataIndex < DATA.Count)
 		{
 			var card = (card_base) DATA[dataIndex].Clone();
 			card.uid = GameState.GetUid();
 		}
 
 		return null;
-    }
+	}
 }

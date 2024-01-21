@@ -12,6 +12,7 @@ func AddHand(cards):
 		#TODO: Fix this to be real lol
 		CardContainer.add_child(Card_Prefab.duplicate())
 		await get_tree().create_timer(.3).timeout
+		
 func DiscardHand():
 	for child in CardContainer.get_children(true):
 		child.queue_free()
@@ -19,8 +20,9 @@ func DiscardHand():
 
 func FocusHand():
 	var hand: CenterContainer = get_child(0)
-	(hand as CenterContainer).position.y -= 50
+	(hand as CenterContainer).position.y -= 60
+	
 func UnfocusHand():
 	var hand: CenterContainer = get_child(0)
-	(hand as CenterContainer).position.y += 50
+	(hand as CenterContainer).position.y += 60
 	
