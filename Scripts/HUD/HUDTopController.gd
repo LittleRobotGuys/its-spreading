@@ -10,10 +10,6 @@ func _ready():
 	#animationPlayer.play("BannerDownTransition")
 	pass
 
-# Called every frame. 'delta' is $BannerAnimationthe elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func TriggerBanner():
 	animationPlayer.play("BannerUpTransition")
 

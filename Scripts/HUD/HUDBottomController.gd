@@ -3,9 +3,6 @@ class_name HUDBottomController
 
 @export var CardContainer: HBoxContainer
 @export var Card_Prefab: Node
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func AddHand(cards):
 	for card in cards:
