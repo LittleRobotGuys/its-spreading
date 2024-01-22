@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://vchhtibvf4ha"]
+[gd_scene load_steps=14 format=3 uid="uid://vchhtibvf4ha"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
-[ext_resource type="PackedScene" uid="uid://24ubeacpu6wg" path="res://card_base.tscn" id="1_sl58w"]
 [ext_resource type="Texture2D" uid="uid://db3dwpfbk7mh1" path="res://Assets/Images/HUD/Blood_Bar.png" id="2_pbo3r"]
 [ext_resource type="Texture2D" uid="uid://bt0ed3v4isaul" path="res://Assets/Images/HUD/ManaBar2_grey.png" id="3_1nk3u"]
 [ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
@@ -66,8 +65,6 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-
-[node name="CardBase" parent="." instance=ExtResource("1_sl58w")]
 
 [node name="Test Buttons" type="Node" parent="."]
 
@@ -225,10 +222,9 @@ libraries = {
 "": SubResource("AnimationLibrary_wgo6x")
 }
 
-[node name="HUDBottom" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("CardContainer", "Card_Prefab")]
+[node name="HUDBottom" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("CardContainer")]
 script = ExtResource("8_2w2c5")
 CardContainer = NodePath("HandContainer/CardContainer")
-Card_Prefab = NodePath("../../CardBase")
 
 [node name="HandContainer" type="CenterContainer" parent="HUDCanvas/HUDBottom"]
 anchors_preset = 12
@@ -236,21 +232,20 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 234.0
-offset_top = -63.0
+offset_top = -95.0
 offset_right = -1.0
-offset_bottom = 50.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CardContainer" type="HBoxContainer" parent="HUDCanvas/HUDBottom/HandContainer"]
 layout_direction = 2
 layout_mode = 2
+alignment = 1
 
 [node name="GamePhaseManager" type="Node" parent="."]
 script = ExtResource("8_lleyy")
 
-[connection signal="mouse_entered" from="CardBase" to="HUDCanvas/HUDBottom" method="FocusHand"]
-[connection signal="mouse_exited" from="CardBase" to="HUDCanvas/HUDBottom" method="UnfocusHand"]
 [connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]
 [connection signal="pressed" from="HUDCanvas/HUDLeft/SkipPhase" to="GamePhaseManager" method="TriggerNextPhase"]
 [connection signal="animation_finished" from="HUDCanvas/HUDTop/BannerAnimation" to="HUDCanvas/HUDTop" method="_on_animation_player_animation_finished"]

@@ -7,7 +7,15 @@ func BeginPhase():
 	#Draw hand
 	
 	#Add hand to UI
-	HUD.HUDBot.AddHand([1,2,3])
+	var CardData = load("res://Scripts/CardData.cs")
+	var CardPrefab = preload("res://card_base.tscn")
+	var hand: Array
+	for i in 3:
+		var tmpData = (CardData.call("CloneCard", randi() % 20))
+		var card = CardPrefab.instantiate()
+		card.ReadInCardData(tmpData)
+		hand.append(card)
+	HUD.HUDBot.AddHand(hand)
 	#reset UI: mana, new mana node...
 	HUD.NewTurn()
 	Manager.TriggerNextPhase()

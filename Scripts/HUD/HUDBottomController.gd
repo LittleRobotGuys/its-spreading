@@ -7,7 +7,7 @@ class_name HUDBottomController
 func AddHand(cards):
 	for card in cards:
 		#TODO: Fix this to be real lol
-		CardContainer.add_child(Card_Prefab.duplicate())
+		CardContainer.add_child(card)
 		await get_tree().create_timer(.3).timeout
 		
 func DiscardHand():
@@ -17,9 +17,9 @@ func DiscardHand():
 
 func FocusHand():
 	var hand: CenterContainer = get_child(0)
-	(hand as CenterContainer).position.y -= 60
+	(hand as CenterContainer).position.y -= 110
 	
 func UnfocusHand():
 	var hand: CenterContainer = get_child(0)
-	(hand as CenterContainer).position.y += 60
+	(hand as CenterContainer).position.y += 110
 	
