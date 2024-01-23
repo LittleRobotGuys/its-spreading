@@ -22,6 +22,16 @@ public partial class card_base : MarginContainer, ICloneable
 
 	public int uid { get; set; }
 
+	public card_base(){
+		this.name = "Juvenile Vampire";
+		this.cardType = CardType.Creature;
+		this.cost = 2;
+		this.initial_blood_value = 20;
+		this.attack = 5;
+		this.CardInfo = "This newly minted initial_blood_value sucker is a mainstay in your spreading army";
+		this.CardFlavorText = "";
+		this.cardAlignment = CardAlignment.Vampire;
+	}
 	public card_base(string name, CardType type, int cost, int blood, int attack, string cardInfo, CardAlignment alignment, string flavorText = "" )
 	{
 		this.name = name;
@@ -32,6 +42,18 @@ public partial class card_base : MarginContainer, ICloneable
 		this.CardInfo = cardInfo == null ? cardInfo : DefaultCardInfo;
 		this.CardFlavorText = flavorText;
 		this.cardAlignment = alignment;
+	}
+	
+	public void ReadInCardData(card_base card)
+	{
+		this.name = card.name;
+		this.cardType = card.cardType;
+		this.cost = card.cost;
+		this.initial_blood_value = card.initial_blood_value;
+		this.attack = card.attack;
+		this.CardInfo = card.CardInfo == null ? card.CardInfo : DefaultCardInfo;
+		this.CardFlavorText = card.CardFlavorText;
+		this.cardAlignment = card.cardAlignment;
 	}
 
 	// Called when the node enters the scene tree for the first time.
@@ -53,11 +75,15 @@ public partial class card_base : MarginContainer, ICloneable
 				break;
 
 		}
+		
+		BloodLabel = GetNode<Label>("%BloodLabel");
+		AttackLabel = GetNode<Label>("%AttackLabel");
+		CostLabel = GetNode<Label>("%CostLabel");
 
-		BloodLabel = GetNode<Label>("BloodLabel");
-		AttackLabel = GetNode<Label>("AttackLabel");
-		CostLabel = GetNode<Label>("CostLabel");
-
+		BloodLabel.Text = "" + initial_blood_value;
+		AttackLabel.Text = "" + attack;
+		CostLabel.Text = "" + cost;
+		
 		GD.Print("BloodLabel value: " + BloodLabel.Text);
 		GD.Print("AttackLabel value: " + AttackLabel.Text);
 		GD.Print("CostLabel value: " + CostLabel.Text);

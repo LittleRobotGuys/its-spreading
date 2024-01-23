@@ -125,6 +125,7 @@ public partial class CardData : GodotObject
 		{
 			var card = (card_base) DATA[dataIndex].Clone();
 			card.uid = GameState.GetUid();
+			return card;
 		}
 
 		return null;

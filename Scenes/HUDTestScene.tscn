@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crjt5w5p5r15i"]
+[gd_scene load_steps=14 format=3 uid="uid://vchhtibvf4ha"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
@@ -7,17 +7,66 @@
 [ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
 [ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_i53n6"]
 [ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ito0s"]
+[ext_resource type="Script" path="res://Scripts/HUD/HUDBottomController.gd" id="8_2w2c5"]
+[ext_resource type="Script" path="res://Scripts/PhaseController/PhaseManager.gd" id="8_lleyy"]
+
+[sub_resource type="Animation" id="Animation_ohpts"]
+resource_name = "BannerDownTransition"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(140, -150), Vector2(140, 10), Vector2(140, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ag8wi"]
+resource_name = "BannerUpTransition"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(140, 0), Vector2(140, 5), Vector2(140, -150)]
+}
+
+[sub_resource type="Animation" id="Animation_aorde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopBanner:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, -0.185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo6x"]
+_data = {
+"BannerDownTransition": SubResource("Animation_ohpts"),
+"BannerUpTransition": SubResource("Animation_ag8wi"),
+"RESET": SubResource("Animation_aorde")
+}
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Test Buttons" type="Node" parent="."]
-
-[node name="Trigger Banner" type="Button" parent="Test Buttons"]
-offset_left = 5.0
-offset_top = 361.0
-offset_right = 128.0
-offset_bottom = 392.0
-text = "Trigger Banner"
 
 [node name="NewTurn" type="Button" parent="Test Buttons"]
 offset_left = 6.0
@@ -26,17 +75,17 @@ offset_right = 106.0
 offset_bottom = 357.0
 text = "New Turn"
 
-[node name="HUDCanvas" type="CanvasLayer" parent="."]
+[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("HUDTop", "HUDBot", "bloodBar", "bloodTxt", "manaObjs", "SkipButton")]
 script = ExtResource("1_2uixq")
-targetBloodValue = 55
+HUDTop = NodePath("HUDTop")
+HUDBot = NodePath("HUDBottom")
+targetBloodValue = 56
+bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
+bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
+manaObjs = NodePath("HUDLeft/LeftBG/ManaBar")
 manaImg = ExtResource("3_3ebk2")
 UsedManaImg = ExtResource("3_1nk3u")
-bloodBar = Object(TextureProgressBar,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":-1,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":37.0,"offset_top":100.0,"offset_right":909.0,"offset_bottom":972.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(0.101, 0.101),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","min_value":0.0,"max_value":100.0,"step":1.0,"page":0.0,"value":100.0,"exp_edit":false,"rounded":false,"allow_greater":false,"allow_lesser":false,"fill_mode":3,"nine_patch_stretch":false,"stretch_margin_left":0,"stretch_margin_top":0,"stretch_margin_right":0,"stretch_margin_bottom":0,"texture_under":null,"texture_over":null,"texture_progress":ExtResource("2_pbo3r"),"texture_progress_offset":Vector2(0, 0),"tint_under":Color(1, 1, 1, 1),"tint_over":Color(1, 1, 1, 1),"tint_progress":Color(1, 1, 1, 1),"radial_initial_angle":0.0,"radial_fill_degrees":360.0,"radial_center_offset":Vector2(0, 0),"script":null)
-
-bloodTxt = Object(Label,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":79.2079,"offset_top":247.525,"offset_right":119.208,"offset_bottom":270.525,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(17.61, 17.61),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":4,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":2,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","text":"10","label_settings":null,"horizontal_alignment":1,"vertical_alignment":1,"autowrap_mode":0,"justification_flags":163,"clip_text":false,"text_overrun_behavior":0,"uppercase":false,"tab_stops":PackedFloat32Array(),"lines_skipped":0,"max_lines_visible":-1,"visible_characters":-1,"visible_characters_behavior":0,"visible_ratio":1.0,"text_direction":0,"language":"","structured_text_bidi_override":0,"structured_text_bidi_override_options":[],"script":null)
-
-manaObjs = Object(HBoxContainer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":1,"anchors_preset":-1,"anchor_left":0.35,"anchor_top":0.601,"anchor_right":0.35,"anchor_bottom":0.601,"offset_left":-0.100006,"offset_top":-15.088,"offset_right":114.9,"offset_bottom":14.912,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"mouse_filter":1,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","alignment":0,"script":null)
-
+SkipButton = NodePath("HUDLeft/SkipPhase")
 
 [node name="HUDLeft" type="Node" parent="HUDCanvas"]
 
@@ -120,24 +169,35 @@ layout_mode = 2
 texture = ExtResource("3_3ebk2")
 expand_mode = 3
 
+[node name="SkipPhase" type="Button" parent="HUDCanvas/HUDLeft"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = -82.0
+offset_right = 199.0
+offset_bottom = -51.0
+grow_vertical = 0
+text = "Skip Phase"
+
 [node name="HUDTop" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("bannerObj", "bannerTxt", "animationPlayer")]
 script = ExtResource("6_i53n6")
 bannerObj = NodePath("TopBanner")
 bannerTxt = NodePath("TopBanner/BannerTxt")
-animationPlayer = NodePath("")
+animationPlayer = NodePath("BannerAnimation")
 
 [node name="TopBanner" type="TextureRect" parent="HUDCanvas/HUDTop"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -399.0
-offset_top = 4.0
-offset_right = 1796.0
-offset_bottom = 264.0
+offset_left = -372.0
+offset_top = -0.185
+offset_right = 2020.0
+offset_bottom = 387.815
 grow_horizontal = 2
 scale = Vector2(0.365, 0.365)
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 4
 texture = ExtResource("7_ito0s")
 expand_mode = 3
 
@@ -155,7 +215,39 @@ offset_bottom = -14.8356
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.89, 2.89)
-text = "Your Turn"
+text = "Enemy Turn"
 
-[connection signal="pressed" from="Test Buttons/Trigger Banner" to="HUDCanvas/HUDTop" method="TriggerBanner"]
+[node name="BannerAnimation" type="AnimationPlayer" parent="HUDCanvas/HUDTop"]
+libraries = {
+"": SubResource("AnimationLibrary_wgo6x")
+}
+
+[node name="HUDBottom" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("CardContainer")]
+script = ExtResource("8_2w2c5")
+CardContainer = NodePath("HandContainer/CardContainer")
+
+[node name="HandContainer" type="CenterContainer" parent="HUDCanvas/HUDBottom"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_top = -95.0
+offset_right = -1.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardContainer" type="HBoxContainer" parent="HUDCanvas/HUDBottom/HandContainer"]
+layout_direction = 2
+layout_mode = 2
+alignment = 1
+
+[node name="GamePhaseManager" type="Node" parent="."]
+script = ExtResource("8_lleyy")
+
 [connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]
+[connection signal="pressed" from="HUDCanvas/HUDLeft/SkipPhase" to="GamePhaseManager" method="TriggerNextPhase"]
+[connection signal="animation_finished" from="HUDCanvas/HUDTop/BannerAnimation" to="HUDCanvas/HUDTop" method="_on_animation_player_animation_finished"]
+[connection signal="mouse_entered" from="HUDCanvas/HUDBottom/HandContainer" to="HUDCanvas/HUDBottom" method="FocusHand"]
+[connection signal="mouse_exited" from="HUDCanvas/HUDBottom/HandContainer" to="HUDCanvas/HUDBottom" method="UnfocusHand"]

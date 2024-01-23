@@ -10,8 +10,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_5c6so"]
 
 [node name="CardBase" type="MarginContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(200, 200)
 layout_direction = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,7 +24,6 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
-mouse_filter = 0
 script = ExtResource("1_ox2t7")
 
 [node name="CardBackground" type="Sprite2D" parent="."]
@@ -51,6 +49,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_a4nkx")
 
 [node name="BloodLabel" type="Label" parent="BloodImage"]
+unique_name_in_owner = true
 texture_filter = 3
 texture_repeat = 1
 use_parent_material = true
@@ -59,7 +58,7 @@ offset_top = -21.3333
 offset_right = 24.0
 offset_bottom = 26.6667
 tooltip_text = "Attack"
-mouse_filter = 0
+mouse_filter = 1
 text = "3"
 label_settings = SubResource("LabelSettings_5c6so")
 horizontal_alignment = 1
@@ -71,6 +70,7 @@ position = Vector2(171, 171)
 texture = ExtResource("4_0gwdn")
 
 [node name="AttackLabel" type="Label" parent="AttackImage"]
+unique_name_in_owner = true
 texture_filter = 3
 texture_repeat = 1
 use_parent_material = true
@@ -79,7 +79,7 @@ offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
 tooltip_text = "Attack"
-mouse_filter = 0
+mouse_filter = 1
 text = "3"
 label_settings = SubResource("LabelSettings_5c6so")
 horizontal_alignment = 1
@@ -91,6 +91,7 @@ position = Vector2(29, 171)
 texture = ExtResource("5_6pqf1")
 
 [node name="CostLabel" type="Label" parent="CostImage"]
+unique_name_in_owner = true
 texture_filter = 3
 texture_repeat = 1
 use_parent_material = true
@@ -99,7 +100,7 @@ offset_top = -24.0
 offset_right = 24.0
 offset_bottom = 24.0
 tooltip_text = "Attack"
-mouse_filter = 0
+mouse_filter = 1
 text = "3"
 label_settings = SubResource("LabelSettings_5c6so")
 horizontal_alignment = 1
