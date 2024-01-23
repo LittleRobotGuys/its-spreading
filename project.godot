@@ -25,6 +25,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Eternal Veil"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

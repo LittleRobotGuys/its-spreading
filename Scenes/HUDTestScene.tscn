@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vchhtibvf4ha"]
+[gd_scene load_steps=8 format=3 uid="uid://crjt5w5p5r15i"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_2uixq"]
 [ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="1_72p8w"]
@@ -7,66 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="3_3ebk2"]
 [ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_i53n6"]
 [ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ito0s"]
-[ext_resource type="Script" path="res://Scripts/HUD/HUDBottomController.gd" id="8_2w2c5"]
-[ext_resource type="Script" path="res://Scripts/PhaseController/PhaseManager.gd" id="8_lleyy"]
-
-[sub_resource type="Animation" id="Animation_ohpts"]
-resource_name = "BannerDownTransition"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("TopBanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(140, -150), Vector2(140, 10), Vector2(140, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ag8wi"]
-resource_name = "BannerUpTransition"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("TopBanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(140, 0), Vector2(140, 5), Vector2(140, -150)]
-}
-
-[sub_resource type="Animation" id="Animation_aorde"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopBanner:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(140, -0.185)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgo6x"]
-_data = {
-"BannerDownTransition": SubResource("Animation_ohpts"),
-"BannerUpTransition": SubResource("Animation_ag8wi"),
-"RESET": SubResource("Animation_aorde")
-}
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Test Buttons" type="Node" parent="."]
+
+[node name="Trigger Banner" type="Button" parent="Test Buttons"]
+offset_left = 5.0
+offset_top = 361.0
+offset_right = 128.0
+offset_bottom = 392.0
+text = "Trigger Banner"
 
 [node name="NewTurn" type="Button" parent="Test Buttons"]
 offset_left = 6.0
@@ -75,17 +26,11 @@ offset_right = 106.0
 offset_bottom = 357.0
 text = "New Turn"
 
-[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("HUDTop", "HUDBot", "bloodBar", "bloodTxt", "manaObjs", "SkipButton")]
+[node name="HUDCanvas" type="CanvasLayer" parent="."]
 script = ExtResource("1_2uixq")
-HUDTop = NodePath("HUDTop")
-HUDBot = NodePath("HUDBottom")
-targetBloodValue = 56
-bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
-bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
-manaObjs = NodePath("HUDLeft/LeftBG/ManaBar")
+targetBloodValue = 55
 manaImg = ExtResource("3_3ebk2")
 UsedManaImg = ExtResource("3_1nk3u")
-SkipButton = NodePath("HUDLeft/SkipPhase")
 
 [node name="HUDLeft" type="Node" parent="HUDCanvas"]
 
@@ -169,35 +114,23 @@ layout_mode = 2
 texture = ExtResource("3_3ebk2")
 expand_mode = 3
 
-[node name="SkipPhase" type="Button" parent="HUDCanvas/HUDLeft"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 108.0
-offset_top = -82.0
-offset_right = 199.0
-offset_bottom = -51.0
-grow_vertical = 0
-text = "Skip Phase"
-
-[node name="HUDTop" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("bannerObj", "bannerTxt", "animationPlayer")]
+[node name="HUDTop" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("bannerObj", "bannerTxt")]
 script = ExtResource("6_i53n6")
 bannerObj = NodePath("TopBanner")
 bannerTxt = NodePath("TopBanner/BannerTxt")
-animationPlayer = NodePath("BannerAnimation")
 
 [node name="TopBanner" type="TextureRect" parent="HUDCanvas/HUDTop"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -372.0
-offset_top = -0.185
-offset_right = 2020.0
-offset_bottom = 387.815
+offset_left = -399.0
+offset_top = 4.0
+offset_right = 1796.0
+offset_bottom = 264.0
 grow_horizontal = 2
 scale = Vector2(0.365, 0.365)
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 texture = ExtResource("7_ito0s")
 expand_mode = 3
 
@@ -215,39 +148,7 @@ offset_bottom = -14.8356
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.89, 2.89)
-text = "Enemy Turn"
+text = "Your Turn"
 
-[node name="BannerAnimation" type="AnimationPlayer" parent="HUDCanvas/HUDTop"]
-libraries = {
-"": SubResource("AnimationLibrary_wgo6x")
-}
-
-[node name="HUDBottom" type="Node" parent="HUDCanvas" node_paths=PackedStringArray("CardContainer")]
-script = ExtResource("8_2w2c5")
-CardContainer = NodePath("HandContainer/CardContainer")
-
-[node name="HandContainer" type="CenterContainer" parent="HUDCanvas/HUDBottom"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 234.0
-offset_top = -95.0
-offset_right = -1.0
-offset_bottom = 116.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="CardContainer" type="HBoxContainer" parent="HUDCanvas/HUDBottom/HandContainer"]
-layout_direction = 2
-layout_mode = 2
-alignment = 1
-
-[node name="GamePhaseManager" type="Node" parent="."]
-script = ExtResource("8_lleyy")
-
+[connection signal="pressed" from="Test Buttons/Trigger Banner" to="HUDCanvas/HUDTop" method="TriggerBanner"]
 [connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]
-[connection signal="pressed" from="HUDCanvas/HUDLeft/SkipPhase" to="GamePhaseManager" method="TriggerNextPhase"]
-[connection signal="animation_finished" from="HUDCanvas/HUDTop/BannerAnimation" to="HUDCanvas/HUDTop" method="_on_animation_player_animation_finished"]
-[connection signal="mouse_entered" from="HUDCanvas/HUDBottom/HandContainer" to="HUDCanvas/HUDBottom" method="FocusHand"]
-[connection signal="mouse_exited" from="HUDCanvas/HUDBottom/HandContainer" to="HUDCanvas/HUDBottom" method="UnfocusHand"]

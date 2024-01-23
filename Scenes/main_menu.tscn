@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dcmnsxi4poaih" path="res://Assets/Images/Quit Sprite.png" id="6_1qpjx"]
 [ext_resource type="Texture2D" uid="uid://ceajg13c6ksex" path="res://Assets/Images/Music Sprite.png" id="7_56871"]
 [ext_resource type="Script" path="res://Scripts/BGM Slider.gd" id="8_r3l5t"]
-[ext_resource type="Script" path="res://FX Slider.gd" id="9_bx7ny"]
+[ext_resource type="Script" path="res://Scripts/FX Slider.gd" id="9_bx7ny"]
 [ext_resource type="Texture2D" uid="uid://yuv1d4ml4dqt" path="res://Assets/Images/FX Sprite.png" id="10_0k0fn"]
 [ext_resource type="Texture2D" uid="uid://b48xgug6yohqf" path="res://Assets/Images/Fullscreen Sprite.png" id="11_805df"]
 [ext_resource type="Texture2D" uid="uid://bdt5tsds5ox3h" path="res://Assets/Images/Windowed Sprite.png" id="12_fasfo"]

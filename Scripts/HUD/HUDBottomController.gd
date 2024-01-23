@@ -9,7 +9,7 @@ func AddHand(cards):
 		#TODO: Fix this to be real lol
 		CardContainer.add_child(card)
 		await get_tree().create_timer(.3).timeout
-		
+
 func DiscardHand():
 	for child in CardContainer.get_children(true):
 		child.queue_free()
@@ -18,8 +18,8 @@ func DiscardHand():
 func FocusHand():
 	var hand: CenterContainer = get_child(0)
 	(hand as CenterContainer).position.y -= 110
-	
+
 func UnfocusHand():
 	var hand: CenterContainer = get_child(0)
 	(hand as CenterContainer).position.y += 110
-	
+

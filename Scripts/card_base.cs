@@ -43,7 +43,7 @@ public partial class card_base : MarginContainer, ICloneable
 		this.CardFlavorText = flavorText;
 		this.cardAlignment = alignment;
 	}
-	
+
 	public void ReadInCardData(card_base card)
 	{
 		this.name = card.name;
@@ -75,7 +75,7 @@ public partial class card_base : MarginContainer, ICloneable
 				break;
 
 		}
-		
+
 		BloodLabel = GetNode<Label>("%BloodLabel");
 		AttackLabel = GetNode<Label>("%AttackLabel");
 		CostLabel = GetNode<Label>("%CostLabel");
@@ -83,7 +83,7 @@ public partial class card_base : MarginContainer, ICloneable
 		BloodLabel.Text = "" + initial_blood_value;
 		AttackLabel.Text = "" + attack;
 		CostLabel.Text = "" + cost;
-		
+
 		GD.Print("BloodLabel value: " + BloodLabel.Text);
 		GD.Print("AttackLabel value: " + AttackLabel.Text);
 		GD.Print("CostLabel value: " + CostLabel.Text);
