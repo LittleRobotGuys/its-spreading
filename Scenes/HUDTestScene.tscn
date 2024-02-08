@@ -26,9 +26,12 @@ offset_right = 106.0
 offset_bottom = 357.0
 text = "New Turn"
 
-[node name="HUDCanvas" type="CanvasLayer" parent="."]
+[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("bloodBar", "bloodTxt", "manaObjs")]
 script = ExtResource("1_2uixq")
 targetBloodValue = 55
+bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
+bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
+manaObjs = NodePath("HUDLeft/LeftBG/ManaBar")
 manaImg = ExtResource("3_3ebk2")
 UsedManaImg = ExtResource("3_1nk3u")
 
