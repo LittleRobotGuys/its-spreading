@@ -1,3 +1,9 @@
+This was originally a game entry for the 2024 Pirate Games Game Jam with the theme "It's spreading".  Our small team had several hiccups irl and didn't finish the project on time, so now it's just a passiona project that we may finish, some day, if we want.
+
+
+
+Below is a list of plugins we're using:
+
 # Godot 4 Aseprite Importers
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
@@ -10,19 +16,6 @@ https://user-images.githubusercontent.com/7024016/236665418-fe8036b9-7de5-4608-a
 ## 💽 Installation
 
 Simply download it from [Godot Asset Library](https://godotengine.org/asset-library/asset/1880).
-
-Alternatively download or clone this repository and copy the contents of the `addons` folder to your own project's `addons` folder.
-
-Then:
-
-- Go to Project Settings
-- Switch to the Plugins tab
-- Enable the plugin
-- Switch to the General tab
-- Turn on Advanced Settings toggle
-- Scroll down the settings tree and select Aseprite Importers section
-- Specify the path to Aseprite executable file
-
 ## 👷‍♀️ How to use
 
 After installing the plugin, the project will support `.ase`- and `.aseprite`-files.
