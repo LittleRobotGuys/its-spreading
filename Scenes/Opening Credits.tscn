@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://cy6ra11f8tghu"]
 
-[ext_resource type="Script" path="res://Scripts/OpenerAnimation.gd" id="1_e2xya"]
+[ext_resource type="Script" path="res://Scripts/Menues/OpenerAnimation.gd" id="1_e2xya"]
 [ext_resource type="Texture2D" uid="uid://dfculabltte40" path="res://Assets/Images/team_kaijukat_sprite_sheet.png" id="2_lwu2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pxxl4"]

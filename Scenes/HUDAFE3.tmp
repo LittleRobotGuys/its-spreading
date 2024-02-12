@@ -1,0 +1,195 @@
+[gd_scene load_steps=13 format=3 uid="uid://crjt5w5p5r15i"]
+
+[ext_resource type="Script" path="res://Scripts/HUD/HUDController.gd" id="1_jrppj"]
+[ext_resource type="Texture2D" uid="uid://duvto37enix0t" path="res://Assets/Images/HUD/ManaBar2.png" id="2_tinid"]
+[ext_resource type="Texture2D" uid="uid://bt0ed3v4isaul" path="res://Assets/Images/HUD/ManaBar2_grey.png" id="3_rb3ox"]
+[ext_resource type="Texture2D" uid="uid://d2tlb0gev5022" path="res://Assets/Images/HUD/Left_Corner_HUD_Back.png" id="4_5n0on"]
+[ext_resource type="Texture2D" uid="uid://db3dwpfbk7mh1" path="res://Assets/Images/HUD/Blood_Bar.png" id="5_8nddq"]
+[ext_resource type="Script" path="res://Scripts/HUD/HUDTopController.gd" id="6_y722p"]
+[ext_resource type="Texture2D" uid="uid://d2bhsxrjisj3t" path="res://Assets/Images/HUD/CenterTopPanel.png" id="7_ktcjv"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="8_ersd8"]
+[ext_resource type="Script" path="res://Scripts/Card/DeckContainer.cs" id="9_cam1i"]
+[ext_resource type="Script" path="res://Scripts/Card/Deck.cs" id="10_3k00s"]
+[ext_resource type="Script" path="res://Scripts/Hand.gd" id="11_x2xb4"]
+[ext_resource type="PackedScene" uid="uid://24ubeacpu6wg" path="res://Scenes/card_base.tscn" id="12_bs2b7"]
+
+[node name="HUD_base_node" type="Node2D"]
+
+[node name="Test Buttons" type="Node" parent="."]
+
+[node name="Trigger Banner" type="Button" parent="Test Buttons"]
+offset_left = 5.0
+offset_top = 361.0
+offset_right = 128.0
+offset_bottom = 392.0
+text = "Trigger Banner"
+
+[node name="NewTurn" type="Button" parent="Test Buttons"]
+offset_left = 6.0
+offset_top = 326.0
+offset_right = 106.0
+offset_bottom = 357.0
+text = "New Turn"
+
+[node name="HUDCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("bloodBar", "bloodTxt", "manaObjs")]
+script = ExtResource("1_jrppj")
+targetBloodValue = 55
+bloodBar = NodePath("HUDLeft/LeftBG/BloodBar")
+bloodTxt = NodePath("HUDLeft/LeftBG/BloodBar/BloodTxt")
+manaObjs = NodePath("HUDLeft/LeftBG/ManaBar")
+manaImg = ExtResource("2_tinid")
+UsedManaImg = ExtResource("3_rb3ox")
+
+[node name="HUDLeft" type="Node" parent="HUDCanvas"]
+
+[node name="LeftBG" type="TextureRect" parent="HUDCanvas/HUDLeft"]
+offset_left = -29.0
+offset_top = 403.0
+offset_right = 337.0
+offset_bottom = 691.0
+texture = ExtResource("4_5n0on")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="BloodBar" type="TextureProgressBar" parent="HUDCanvas/HUDLeft/LeftBG"]
+z_index = -1
+layout_mode = 0
+offset_left = 37.0
+offset_top = 100.0
+offset_right = 909.0
+offset_bottom = 972.0
+scale = Vector2(0.101, 0.101)
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("5_8nddq")
+
+[node name="BloodTxt" type="Label" parent="HUDCanvas/HUDLeft/LeftBG/BloodBar"]
+layout_mode = 0
+offset_left = 79.2079
+offset_top = 247.525
+offset_right = 119.208
+offset_bottom = 270.525
+scale = Vector2(17.61, 17.61)
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaBar" type="HBoxContainer" parent="HUDCanvas/HUDLeft/LeftBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.601
+anchor_right = 0.35
+anchor_bottom = 0.601
+offset_left = -0.100006
+offset_top = -15.088
+offset_right = 114.9
+offset_bottom = 14.912
+
+[node name="ManaSegment" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_tinid")
+expand_mode = 3
+
+[node name="ManaSegment2" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_tinid")
+expand_mode = 3
+
+[node name="ManaSegment3" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_tinid")
+expand_mode = 3
+
+[node name="ManaSegment4" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_tinid")
+expand_mode = 3
+
+[node name="ManaSegment5" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_tinid")
+expand_mode = 3
+
+[node name="ManaSegment6" type="TextureRect" parent="HUDCanvas/HUDLeft/LeftBG/ManaBar"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_tinid")
+expand_mode = 3
+
+[node name="HUDTop" type="Node" parent="HUDCanvas"]
+script = ExtResource("6_y722p")
+bannerObj = null
+bannerTxt = null
+
+[node name="TopBanner" type="TextureRect" parent="HUDCanvas/HUDTop"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -399.0
+offset_top = 4.0
+offset_right = 1796.0
+offset_bottom = 264.0
+grow_horizontal = 2
+scale = Vector2(0.365, 0.365)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("7_ktcjv")
+expand_mode = 3
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "HUDCanvas/HUDTop/TopBanner/AnimationPlayer",
+"source": ""
+}
+
+[node name="BannerTxt" type="Label" parent="HUDCanvas/HUDTop/TopBanner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.068
+offset_top = -37.8356
+offset_right = -24.1835
+offset_bottom = -14.8356
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.89, 2.89)
+text = "Your Turn"
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("8_ersd8")
+
+[node name="DeckContainer" type="Node2D" parent="Player"]
+position = Vector2(-400, 220)
+script = ExtResource("9_cam1i")
+
+[node name="Deck" type="Sprite2D" parent="Player/DeckContainer"]
+script = ExtResource("10_3k00s")
+
+[node name="Hand2" type="HBoxContainer" parent="Player"]
+offset_left = 100.0
+offset_top = 350.0
+offset_right = 900.0
+offset_bottom = 550.0
+alignment = 1
+script = ExtResource("11_x2xb4")
+
+[node name="CardBase" parent="Player/Hand2" instance=ExtResource("12_bs2b7")]
+layout_mode = 2
+
+[connection signal="pressed" from="Test Buttons/Trigger Banner" to="HUDCanvas/HUDTop" method="TriggerBanner"]
+[connection signal="pressed" from="Test Buttons/NewTurn" to="HUDCanvas" method="NewTurn"]

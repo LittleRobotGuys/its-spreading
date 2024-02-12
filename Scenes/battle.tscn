@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://blr4o1jws0sw8"]
 
-[ext_resource type="Texture2D" uid="uid://cpbj7mmmf866n" path="res://Assets/Images/red_tile.png" id="1_gcd0u"]
-[ext_resource type="Texture2D" uid="uid://cbc0w4yd3fevg" path="res://Assets/Images/grey_tile.png" id="2_vicd7"]
-[ext_resource type="Texture2D" uid="uid://pqx8c5t3bwe6" path="res://Assets/Images/blue_tile.png" id="3_g7qfp"]
-[ext_resource type="PackedScene" uid="uid://crjt5w5p5r15i" path="res://Scenes/HUDTestScene.tscn" id="5_avqmt"]
+[ext_resource type="Texture2D" uid="uid://cpbj7mmmf866n" path="res://Assets/Images/red_tile.png" id="1_qt1xg"]
+[ext_resource type="Texture2D" uid="uid://cbc0w4yd3fevg" path="res://Assets/Images/grey_tile.png" id="2_qy5u5"]
+[ext_resource type="Texture2D" uid="uid://pqx8c5t3bwe6" path="res://Assets/Images/blue_tile.png" id="3_h22nl"]
+[ext_resource type="PackedScene" uid="uid://crjt5w5p5r15i" path="res://Scenes/HUD.tscn" id="4_vexmy"]
 
 [node name="NewGame" type="Control"]
 layout_mode = 3
@@ -44,245 +44,245 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 2" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 3" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="NeutralCard Slot 1" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("2_vicd7")
+texture = ExtResource("2_qy5u5")
 
 [node name="HostileCard Slot 1" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 2" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 3" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="FriendlyCard Slot 4" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 5" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 6" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="NeutralCard Slot 2" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("2_vicd7")
+texture = ExtResource("2_qy5u5")
 
 [node name="HostileCard Slot 4" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 5" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 6" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="FriendlyCard Slot 7" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 8" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 9" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="NeutralCard Slot 3" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("2_vicd7")
+texture = ExtResource("2_qy5u5")
 
 [node name="HostileCard Slot 7" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 8" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 9" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="FriendlyCard Slot 10" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 11" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 12" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="NeutralCard Slot 4" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("2_vicd7")
+texture = ExtResource("2_qy5u5")
 
 [node name="HostileCard Slot 10" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 11" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 12" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="FriendlyCard Slot 13" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 14" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="FriendlyCard Slot 15" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("1_gcd0u")
+texture = ExtResource("1_qt1xg")
 
 [node name="NeutralCard Slot 5" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("2_vicd7")
+texture = ExtResource("2_qy5u5")
 
 [node name="HostileCard Slot 13" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 14" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
 [node name="HostileCard Slot 15" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.7
-texture = ExtResource("3_g7qfp")
+texture = ExtResource("3_h22nl")
 
-[node name="Hud" parent="." instance=ExtResource("5_avqmt")]
+[node name="HUD" parent="." instance=ExtResource("4_vexmy")]
 z_index = 2
