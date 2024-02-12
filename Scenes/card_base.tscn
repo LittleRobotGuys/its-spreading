@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://24ubeacpu6wg"]
 
-[ext_resource type="Script" path="res://Scripts/card_base.cs" id="1_ox2t7"]
+[ext_resource type="Script" path="res://Scripts/Card/card_base.cs" id="1_ox2t7"]
 [ext_resource type="Texture2D" uid="uid://cu2qttocw0dxo" path="res://Assets/Images/BloodDroplet.png" id="2_a4nkx"]
 [ext_resource type="Texture2D" uid="uid://uwlb2okrlxg0" path="res://Assets/Images/Border_PH.png" id="2_nk06y"]
 [ext_resource type="Texture2D" uid="uid://ct4ryr7yj0guu" path="res://Assets/Images/CardBackground.png" id="2_pg2ir"]

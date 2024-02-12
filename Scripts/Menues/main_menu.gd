@@ -8,7 +8,7 @@ extends Control
 @onready var menu_margin_container = $"." as MarginContainer
 @onready var options_menu_container =  $"../options_menu" as VBoxContainer
 @onready var options_back_button = $"../options_menu/back_button" as Button
-@onready var new_game_scene = preload("res://Scenes/new_game.tscn") as PackedScene
+@onready var new_game_scene = preload("res://Scenes/battle.tscn") as PackedScene
 @onready var fullscreen_button = $"../options_menu/HBoxContainer/fullscreen_button" as Button
 @onready var windowed_button = $"../options_menu/HBoxContainer/windowed_button" as Button
 @onready var load_menu = $"../load_menu" as Node

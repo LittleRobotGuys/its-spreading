@@ -1,6 +1,6 @@
 [gd_scene load_steps=59 format=3 uid="uid://cpji7l5haqnr3"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_ro37x"]
+[ext_resource type="Script" path="res://Scripts/Menues/main_menu.gd" id="1_ro37x"]
 [ext_resource type="Texture2D" uid="uid://c0rvi45oevwia" path="res://Assets/Images/Animated Title-Sheet.png" id="2_7bkat"]
 [ext_resource type="AudioStream" uid="uid://n6h38sb34vs3" path="res://Assets/Audio/Music/MenuTheme.wav" id="2_31f4q"]
 [ext_resource type="Texture2D" uid="uid://bmdoliqpadg5w" path="res://Assets/Images/New Game Sprite.png" id="3_2xxj8"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dfvgp6m24jeau" path="res://Assets/Images/Options Sprite.png" id="5_ow5ys"]
 [ext_resource type="Texture2D" uid="uid://dcmnsxi4poaih" path="res://Assets/Images/Quit Sprite.png" id="6_1qpjx"]
 [ext_resource type="Texture2D" uid="uid://ceajg13c6ksex" path="res://Assets/Images/Music Sprite.png" id="7_56871"]
-[ext_resource type="Script" path="res://Scripts/BGM Slider.gd" id="8_r3l5t"]
-[ext_resource type="Script" path="res://Scripts/FX Slider.gd" id="9_bx7ny"]
+[ext_resource type="Script" path="res://Scripts/Menues/BGM Slider.gd" id="8_r3l5t"]
+[ext_resource type="Script" path="res://Scripts/Menues/FX Slider.gd" id="9_bx7ny"]
 [ext_resource type="Texture2D" uid="uid://yuv1d4ml4dqt" path="res://Assets/Images/FX Sprite.png" id="10_0k0fn"]
 [ext_resource type="Texture2D" uid="uid://b48xgug6yohqf" path="res://Assets/Images/Fullscreen Sprite.png" id="11_805df"]
 [ext_resource type="Texture2D" uid="uid://bdt5tsds5ox3h" path="res://Assets/Images/Windowed Sprite.png" id="12_fasfo"]
